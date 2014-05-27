@@ -88,7 +88,8 @@ add_action( 'widgets_init', 'bolt_widgets_init' );
  * Enqueue scripts and styles.
  */
 function bolt_scripts() {
-	wp_enqueue_style( 'bolt-style', get_stylesheet_uri() );
+	wp_register_style( 'bolt-essential', get_stylesheet_directory_uri() . '/css/essential.css' );
+	wp_enqueue_style( 'bolt-style', get_stylesheet_uri(), array( 'bolt-essential' ) );
 
 	wp_enqueue_script( 'bolt-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
@@ -103,7 +104,7 @@ add_action( 'wp_enqueue_scripts', 'bolt_scripts' );
 /**
  * Implement the Custom Header feature.
  */
-//require get_template_directory() . '/inc/custom-header.php';
+require get_template_directory() . '/inc/custom-header.php';
 
 /**
  * Custom template tags for this theme.

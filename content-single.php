@@ -4,7 +4,10 @@
  */
 ?>
 
+<?php tha_entry_before(); ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<?php tha_entry_top(); ?>
+
 	<header class="entry-header">
 		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
@@ -59,4 +62,7 @@
 
 		<?php edit_post_link( __( 'Edit', 'bolt' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+
+	<?php tha_entry_bottom(); ?>
+</article><!-- #post-<?php the_ID(); ?> -->
+<?php tha_entry_after(); ?>

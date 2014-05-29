@@ -40,9 +40,10 @@ function bolt_setup() {
 	 */
 	//add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
+	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'bolt' ),
+		'primary'  => __( 'Primary Menu', 'bolt' ),
+		'footer'   => __( 'Footer Menu', 'bolt' ),
 	) );
 
 	// Enable support for Post Formats.
@@ -75,6 +76,16 @@ function bolt_widgets_init() {
 	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'bolt' ),
 		'id'            => 'sidebar-1',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h1 class="widget-title">',
+		'after_title'   => '</h1>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Footer Widgets', 'bolt' ),
+		'id'            => 'footer-widget-area',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
@@ -125,3 +136,8 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
+/**
+ * Load THA hooks.
+ */
+require get_template_directory() . '/inc/libraries/tha/tha-theme-hooks.php';

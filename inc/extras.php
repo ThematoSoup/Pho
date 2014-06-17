@@ -4,7 +4,7 @@
  *
  * Eventually, some of the functionality here could be replaced by core features
  *
- * @package Bolt
+ * @package Pho
  */
 
 /**
@@ -13,11 +13,11 @@
  * @param array $args Configuration arguments.
  * @return array
  */
-function bolt_page_menu_args( $args ) {
+function pho_page_menu_args( $args ) {
 	$args['show_home'] = true;
 	return $args;
 }
-add_filter( 'wp_page_menu_args', 'bolt_page_menu_args' );
+add_filter( 'wp_page_menu_args', 'pho_page_menu_args' );
 
 /**
  * Adds custom classes to the array of body classes.
@@ -25,15 +25,19 @@ add_filter( 'wp_page_menu_args', 'bolt_page_menu_args' );
  * @param array $classes Classes for the body element.
  * @return array
  */
-function bolt_body_classes( $classes ) {
+function pho_body_classes( $classes ) {
 	// Adds a class of group-blog to blogs with more than 1 published author.
 	if ( is_multi_author() ) {
 		$classes[] = 'group-blog';
 	}
 
+	if ( ! is_active_sidebar( 'sidebar' ) ) {
+		$classes[] = 'full-width';
+	}
+
 	return $classes;
 }
-add_filter( 'body_class', 'bolt_body_classes' );
+add_filter( 'body_class', 'pho_body_classes' );
 
 /**
  * Filters wp_title to print a neat <title> tag based on what is being viewed.
@@ -42,7 +46,7 @@ add_filter( 'body_class', 'bolt_body_classes' );
  * @param string $sep Optional separator.
  * @return string The filtered title.
  */
-function bolt_wp_title( $title, $sep ) {
+function pho_wp_title( $title, $sep ) {
 	if ( is_feed() ) {
 		return $title;
 	}
@@ -60,12 +64,12 @@ function bolt_wp_title( $title, $sep ) {
 
 	// Add a page number if necessary:
 	if ( ( $paged >= 2 || $page >= 2 ) && ! is_404() ) {
-		$title .= " $sep " . sprintf( __( 'Page %s', 'bolt' ), max( $paged, $page ) );
+		$title .= " $sep " . sprintf( __( 'Page %s', 'pho' ), max( $paged, $page ) );
 	}
 
 	return $title;
 }
-add_filter( 'wp_title', 'bolt_wp_title', 10, 2 );
+add_filter( 'wp_title', 'pho_wp_title', 10, 2 );
 
 /**
  * Sets the authordata global when viewing an author archive.
@@ -79,11 +83,90 @@ add_filter( 'wp_title', 'bolt_wp_title', 10, 2 );
  * @global WP_Query $wp_query WordPress Query object.
  * @return void
  */
-function bolt_setup_author() {
+function pho_setup_author() {
 	global $wp_query;
 
 	if ( $wp_query->is_author() && isset( $wp_query->post ) ) {
 		$GLOBALS['authordata'] = get_userdata( $wp_query->post->post_author );
 	}
 }
-add_action( 'wp', 'bolt_setup_author' );
+add_action( 'wp', 'pho_setup_author' );
+
+/**
+ * Gets Google Fonts embed URL, if needed.
+ *
+ * Checks if Google Fonts are selected from Typography
+ * options in Theme Customizer.
+ *
+ * @uses   get_theme_mod
+ * @return string | false
+ */
+function pho_get_google_font_url() {
+	$font_families = array();
+
+	// Check if body font is not Helvetica (all remaining options are Google Fonts)
+	if ( 'Helvetica' != get_theme_mod( 'body_font', 'Helvetica' ) ) {
+		$font_families[] = get_theme_mod( 'body_font' ) . ':400,400italic,700,700italic';
+	} 
+	// Check if heading font is not Helvetica and is different than body font
+	if ( 'Helvetica' != get_theme_mod( 'headings_font', 'Helvetica' ) && get_theme_mod( 'body_font' ) != get_theme_mod( 'headings_font' ) ) {
+		$font_families[] = get_theme_mod( 'headings_font' ) . ':400,400italic';
+	} 
+
+	if ( ! empty( $font_families ) ) {
+		$query_args = array(
+			'family' => urlencode( implode( '|', $font_families ) ),
+			'subset' => urlencode( 'latin,latin-ext' ),
+		);
+		$fonts_url = add_query_arg( $query_args, "//fonts.googleapis.com/css" );
+
+		return $fonts_url;
+	}
+
+	return false;
+}
+
+/**
+ * Generates embedded CSS for custom typography options.
+ *
+ * @uses   get_theme_mod
+ */
+function pho_fonts_css() {
+	// Check if body font is not default (Helvetica)
+	if ( 'Helvetica' != get_theme_mod( 'body_font', 'Helvetica' ) ) { 
+		echo '<style id="pho-body-font">body,button,input,select,textarea,.site-description{font-family:' . get_theme_mod( "body_font" ) . '}</style>';
+	}
+	// Check if headings font is not default (Helvetica)
+	if ( 'Helvetica' != get_theme_mod( 'headings_font', 'Helvetica' ) ) {
+		echo '<style id="pho-headings-font">h1,h2,h3,h4,h5,h6{font-family:' . get_theme_mod( "headings_font" ) . '}</style>';
+	}
+}
+add_action( 'wp_head', 'pho_fonts_css' );
+
+/**
+ * Count number of widgets in a sidebar
+ * Used to add classes to widget areas so widgets can be displayed one, two or three per row
+ *
+ * @uses	wp_get_sidebars_widgets()		http://codex.wordpress.org/Function_Reference/wp_get_sidebars_widgets
+ * @since	Pho 1.0
+ */
+function pho_count_widgets( $sidebar_id ) {
+	/* 
+	 * Count widgets in footer widget area
+	 * Used to set widget width based on total count
+	 */
+	$sidebars_widgets_count = wp_get_sidebars_widgets();
+	if ( isset( $sidebars_widgets_count[ $sidebar_id ] ) ) :
+		$widget_count = count( $sidebars_widgets_count[ $sidebar_id ] );
+		$widget_classes = 'widget-count-' . count( $sidebars_widgets_count[ $sidebar_id ] );
+		if ( $widget_count % 4 == 0 || $widget_count > 6 ) : // four per row if four widgets or more than 6
+			$widget_classes .= ' per-row-4';
+		elseif ( $widget_count % 3 == 0 || $widget_count > 3 ) :
+			$widget_classes .= ' per-row-3';
+		elseif ( 2 == $widget_count ) :
+			$widget_classes .= ' per-row-2';
+		endif; 
+		 
+		return $widget_classes;
+	endif;
+}

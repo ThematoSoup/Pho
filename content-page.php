@@ -2,7 +2,7 @@
 /**
  * The template used for displaying page content in page.php
  *
- * @package Bolt
+ * @package Pho
  */
 ?>
 
@@ -18,13 +18,13 @@
 		<?php the_content(); ?>
 		<?php
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'bolt' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'pho' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
 	<footer class="entry-footer">
-		<?php edit_post_link( __( 'Edit', 'bolt' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php edit_post_link( __( 'Edit', 'pho' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->
 
 	<?php tha_entry_bottom(); ?>

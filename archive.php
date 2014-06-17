@@ -4,7 +4,7 @@
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package Bolt
+ * @package Pho
  */
 
 get_header(); ?>
@@ -24,46 +24,46 @@ get_header(); ?>
 							single_tag_title();
 
 						elseif ( is_author() ) :
-							printf( __( 'Author: %s', 'bolt' ), '<span class="vcard">' . get_the_author() . '</span>' );
+							printf( __( 'Author: %s', 'pho' ), '<span class="vcard">' . get_the_author() . '</span>' );
 
 						elseif ( is_day() ) :
-							printf( __( 'Day: %s', 'bolt' ), '<span>' . get_the_date() . '</span>' );
+							printf( __( 'Day: %s', 'pho' ), '<span>' . get_the_date() . '</span>' );
 
 						elseif ( is_month() ) :
-							printf( __( 'Month: %s', 'bolt' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'bolt' ) ) . '</span>' );
+							printf( __( 'Month: %s', 'pho' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'pho' ) ) . '</span>' );
 
 						elseif ( is_year() ) :
-							printf( __( 'Year: %s', 'bolt' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'bolt' ) ) . '</span>' );
+							printf( __( 'Year: %s', 'pho' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'pho' ) ) . '</span>' );
 
 						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
-							_e( 'Asides', 'bolt' );
+							_e( 'Asides', 'pho' );
 
 						elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
-							_e( 'Galleries', 'bolt');
+							_e( 'Galleries', 'pho');
 
 						elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-							_e( 'Images', 'bolt');
+							_e( 'Images', 'pho');
 
 						elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
-							_e( 'Videos', 'bolt' );
+							_e( 'Videos', 'pho' );
 
 						elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
-							_e( 'Quotes', 'bolt' );
+							_e( 'Quotes', 'pho' );
 
 						elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
-							_e( 'Links', 'bolt' );
+							_e( 'Links', 'pho' );
 
 						elseif ( is_tax( 'post_format', 'post-format-status' ) ) :
-							_e( 'Statuses', 'bolt' );
+							_e( 'Statuses', 'pho' );
 
 						elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
-							_e( 'Audios', 'bolt' );
+							_e( 'Audios', 'pho' );
 
 						elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
-							_e( 'Chats', 'bolt' );
+							_e( 'Chats', 'pho' );
 
 						else :
-							_e( 'Archives', 'bolt' );
+							_e( 'Archives', 'pho' );
 
 						endif;
 					?>
@@ -90,7 +90,7 @@ get_header(); ?>
 
 			<?php endwhile; ?>
 
-			<?php bolt_paging_nav(); ?>
+			<?php pho_paging_nav(); ?>
 
 		<?php else : ?>
 

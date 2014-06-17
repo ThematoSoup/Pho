@@ -12,37 +12,37 @@
 	<?php endif; // End header image check. ?>
 
  *
- * @package Bolt
+ * @package Pho
  */
 
 /**
  * Setup the WordPress core custom header feature.
  *
- * @uses bolt_header_style()
- * @uses bolt_admin_header_style()
- * @uses bolt_admin_header_image()
+ * @uses pho_header_style()
+ * @uses pho_admin_header_style()
+ * @uses pho_admin_header_image()
  */
-function bolt_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'bolt_custom_header_args', array(
+function pho_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'pho_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1000,
 		'height'                 => 250,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'bolt_header_style',
-		'admin-head-callback'    => 'bolt_admin_header_style',
-		'admin-preview-callback' => 'bolt_admin_header_image',
+		'wp-head-callback'       => 'pho_header_style',
+		'admin-head-callback'    => 'pho_admin_header_style',
+		'admin-preview-callback' => 'pho_admin_header_image',
 	) ) );
 }
-add_action( 'after_setup_theme', 'bolt_custom_header_setup' );
+add_action( 'after_setup_theme', 'pho_custom_header_setup' );
 
-if ( ! function_exists( 'bolt_header_style' ) ) :
+if ( ! function_exists( 'pho_header_style' ) ) :
 /**
  * Styles the header image and text displayed on the blog
  *
- * @see bolt_custom_header_setup().
+ * @see pho_custom_header_setup().
  */
-function bolt_header_style() {
+function pho_header_style() {
 	$header_text_color = get_header_textcolor();
 
 	// If no custom options for text are set, let's bail
@@ -75,15 +75,15 @@ function bolt_header_style() {
 	</style>
 	<?php
 }
-endif; // bolt_header_style
+endif; // pho_header_style
 
-if ( ! function_exists( 'bolt_admin_header_style' ) ) :
+if ( ! function_exists( 'pho_admin_header_style' ) ) :
 /**
  * Styles the header image displayed on the Appearance > Header admin panel.
  *
- * @see bolt_custom_header_setup().
+ * @see pho_custom_header_setup().
  */
-function bolt_admin_header_style() {
+function pho_admin_header_style() {
 ?>
 	<style type="text/css">
 		.appearance_page_custom-header #headimg {
@@ -103,15 +103,15 @@ function bolt_admin_header_style() {
 	</style>
 <?php
 }
-endif; // bolt_admin_header_style
+endif; // pho_admin_header_style
 
-if ( ! function_exists( 'bolt_admin_header_image' ) ) :
+if ( ! function_exists( 'pho_admin_header_image' ) ) :
 /**
  * Custom header image markup displayed on the Appearance > Header admin panel.
  *
- * @see bolt_custom_header_setup().
+ * @see pho_custom_header_setup().
  */
-function bolt_admin_header_image() {
+function pho_admin_header_image() {
 	$style = sprintf( ' style="color:#%s;"', get_header_textcolor() );
 ?>
 	<div id="headimg">
@@ -123,4 +123,4 @@ function bolt_admin_header_image() {
 	</div>
 <?php
 }
-endif; // bolt_admin_header_image
+endif; // pho_admin_header_image

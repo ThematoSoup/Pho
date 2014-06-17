@@ -18,7 +18,7 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-			<?php /* Start the Loop */ ?>
+			<div id="masonry-wrapper">
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php
@@ -26,10 +26,11 @@ get_header(); ?>
 					 * If you want to override this in a child theme, then include a file
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
-					get_template_part( 'content', get_post_format() );
+					get_template_part( 'content', 'masonry' );
 				?>
 
 			<?php endwhile; ?>
+			</div>
 
 			<?php pho_paging_nav(); ?>
 

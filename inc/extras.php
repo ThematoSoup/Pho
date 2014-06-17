@@ -32,7 +32,7 @@ function pho_body_classes( $classes ) {
 	}
 
 	if ( ! is_active_sidebar( 'sidebar' ) ) {
-		$classes[] = 'full-width';
+		$classes[] = 'no-sidebar';
 	}
 
 	return $classes;

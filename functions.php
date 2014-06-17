@@ -70,6 +70,11 @@ endif; // pho_setup
 add_action( 'after_setup_theme', 'pho_setup' );
 
 /**
+ * Add image size.
+ */
+add_image_size( 'masonry-thumb', 370, 210, true );
+
+/**
  * Register widget area.
  *
  * @link http://codex.wordpress.org/Function_Reference/register_sidebar
@@ -120,8 +125,29 @@ function pho_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+	if ( is_archive() || is_home() ) {
+		wp_enqueue_script( 'masonry' );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'pho_scripts' );
+
+/**
+ * Initialize Masonry.
+ */
+function pho_masonry_init() { ?>
+<script type="text/javascript">
+	var container = document.querySelector('#masonry-wrapper');
+	var msnry;
+
+	imagesLoaded( container, function() {
+		msnry = new Masonry( container, {
+			itemSelector: '.hentry',
+			gutter:       30
+		});
+	});
+</script>
+<?php }
+add_action( 'wp_footer', 'pho_masonry_init', 100 );
 
 /**
  * Implement the Custom Header feature.

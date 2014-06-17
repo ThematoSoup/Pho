@@ -146,6 +146,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 	margin: 1.5em 0 0.75em;
 	line-height: 1;
+	color: #1d1d1d;
 }
 h1 {
 	font-size: 36px;
@@ -240,24 +241,25 @@ big {
 /* Content - Sidebar */
 .content-area {
 	float: left;
-	margin: 0 -30.76923% 0 0;
+	margin: 0 -31.62393% 0 0;
 	width: 100%;
 }
 .site-main {
-	margin: 0 30.76923% 0 0;
+	margin: 0 31.62393% 0 0;
 	padding-right: 30px;
 }
 .site-content .widget-area {
 	float: right;
 	overflow: hidden;
-	width: 30.76923%;
+	width: 31.62393%;
 }
 /* Full width */
-.full-width #content {
+.no-sidebar.single #content,
+.no-sidebar.page #content {
 	float: none;
 	max-width: 800px;
 }
-.full-width .site-main {
+.no-sidebar .site-main {
 	margin: 0;
 	padding-right: 0;
 }
@@ -293,7 +295,7 @@ hr {
 	margin-bottom: 1.5em;
 }
 ul, ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 2em 1.5em;
 }
 ul {
 	list-style: disc;
@@ -343,21 +345,21 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	border: none;
-	background: #e6e6e6;
-	color: rgba(0, 0, 0, .8);
+	background: #e14546;
+	color: #fff;
 	cursor: pointer; /* Improves usability and consistency of cursor style between image-type 'input' and others */
 	-webkit-appearance: button; /* Corrects inability to style clickable 'input' types in iOS */
-	font-size: 12px;
-	font-size: 1.2rem;
+	font-size: 14px;
+	font-size: 1.4rem;
 	line-height: 1;
-	padding: .6em 1em .4em;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+	padding: 1em 1.5em;
+	text-transform: uppercase;
 }
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
 input[type="submit"]:hover {
-	background: #d6d6d6;
+	background: #555;
 }
 button:focus,
 input[type="button"]:focus,
@@ -367,7 +369,7 @@ button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
-	background: #c6c6c6;
+	background: #181818;
 }
 input[type="checkbox"],
 input[type="radio"] {
@@ -394,8 +396,11 @@ input[type="password"],
 input[type="search"],
 textarea {
 	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: 0;
+	font-size: 14px;
+	font-size: 1.4rem;
+	padding: 0.5em;
 }
 input[type="text"]:focus,
 input[type="email"]:focus,
@@ -405,16 +410,8 @@ input[type="search"]:focus,
 textarea:focus {
 	color: #111;
 }
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
-input[type="search"] {
-	padding: 3px;
-}
 textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
-	padding-left: 3px;
 	vertical-align: top; /* Improves readability and alignment in all browsers */
 	width: 98%;
 }
@@ -757,10 +754,23 @@ a:active {
 /*--------------------------------------------------------------
 11.1 Posts and pages
 --------------------------------------------------------------*/
+#masonry-wrapper .hentry {
+	width: 48.05194%;
+	margin-bottom: 30px;
+	padding-bottom: 34px;
+	background: url(images/separator.png) repeat-x bottom left;
+}
+.no-sidebar #masonry-wrapper .hentry {
+	width: 31.62393%;
+}
+#masonry-wrapper .entry-summary {
+	font-size: 16px;
+	font-size: 1.6rem;
+}
 .sticky {
 }
 .hentry {
-	margin: 0 0 1.5em;
+	margin: 0 0 3em;
 }
 .byline,
 .updated {
@@ -788,6 +798,10 @@ a:active {
 .entry-title {
 	margin: 0;
 }
+.entry-title a {
+	color: #1d1d1d;
+	text-decoration: none;
+}
 .entry-meta,
 .entry-footer {
 	font-size: 14px;
@@ -801,6 +815,16 @@ a:active {
 .entry-content > :last-child {
 	margin-bottom: 0;
 }
+.entry-content table {
+	border-collapse: collapse;
+}
+.entry-content td,
+.entry-content th {
+	border: 1px solid #e5e5e5;
+	padding: 0.5em;
+	font-size: 16px;
+	font-size: 1.6rem;
+}
 
 /*--------------------------------------------------------------
 11.2 Asides
@@ -813,6 +837,40 @@ a:active {
 /*--------------------------------------------------------------
 11.3 Comments
 --------------------------------------------------------------*/
+.required {
+	color: #e14546;
+}
+.comment-form label {
+	font-size: 14px;
+	font-size: 1.4rem;
+	display: block;
+	margin-bottom: 0.4em;
+}
+.comment-form-email,
+.comment-form-author,
+.comment-form-url {
+	float: left;
+	width: 30%;
+	box-sizing: content-box;
+	-moz-box-sizing: content-box;
+}
+.comment-form-email,
+.comment-form-author {
+	padding-right: 5%;
+}
+.comment-form-email input,
+.comment-form-author input,
+.comment-form-url input,
+.comment-form textarea	 {
+	width: 100%;
+}
+.form-allowed-tags {
+	font-size: 14px;
+	font-style: 1.4rem;
+}
+.comment-form-comment {
+	clear: left;
+}
 .comment-content a {
 	word-wrap: break-word;
 }
@@ -862,7 +920,15 @@ object {
 }
 .wp-post-image {
 	display: block;
-	widows: 100%;
+	width: 100%;
+	height: auto;
+}
+.size-auto, 
+.size-full,
+.size-large,
+.size-medium,
+.size-thumbnail {
+	max-width: 100%;
 	height: auto;
 }
 

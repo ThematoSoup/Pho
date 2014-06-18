@@ -182,21 +182,22 @@ dfn, cite, em, i {
 	font-style: italic;
 }
 blockquote {
-	margin: 0 1.5em;
+	margin: 2em 1.5em;
 }
 address {
 	margin: 0 0 1.5em;
 }
 pre {
-	background: #eee;
+	background-color: rgba(0,0,0,0.025);
+	border: 1px solid rgba(0,0,0,0.05);
+	padding: 1.5em;
 	font-family: "Courier 10 Pitch", Courier, monospace;
-	font-size: 15px;
-	font-size: 1.5rem;
+	font-size: 14px;
+	font-size: 1.4rem;
 	line-height: 1.6;
-	margin-bottom: 1.6em;
+	margin-bottom: 2em;
 	max-width: 100%;
 	overflow: auto;
-	padding: 1.6em;
 }
 code, kbd, tt, var {
 	font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
@@ -243,6 +244,8 @@ big {
 	float: left;
 	margin: 0 -31.62393% 0 0;
 	width: 100%;
+	padding-top: 60px;
+	padding-bottom: 60px;
 }
 .site-main {
 	margin: 0 31.62393% 0 0;
@@ -257,16 +260,14 @@ big {
 .no-sidebar.single #content,
 .no-sidebar.page #content {
 	float: none;
-	max-width: 800px;
+	max-width: 1000px;
 }
 .no-sidebar .site-main {
 	margin: 0;
 	padding-right: 0;
 }
 
-#masthead {
-	margin-bottom: 30px;
-}
+
 .site-branding {
 	text-align: center;
 	padding: 60px 0;
@@ -307,6 +308,18 @@ li > ul,
 li > ol {
 	margin-bottom: 0;
 	margin-left: 1.5em;
+}
+li ul {
+	list-style: square;
+}
+li ol {
+	list-style: lower-roman;
+}
+li li ul {
+	list-style: circle;
+}
+li li ol {
+	list-style: lower-alpha;
 }
 dt {
 	font-weight: bold;
@@ -476,7 +489,8 @@ a:active {
 }
 .main-navigation ul ul ul {
 	left: -999em;
-	top: 0;
+	top: -1px;
+	margin-left: 0;
 }
 .main-navigation ul ul a {
 	width: 220px;
@@ -825,6 +839,44 @@ a:active {
 	font-size: 16px;
 	font-size: 1.6rem;
 }
+.entry-content th {
+	background: #e14546;
+	color: #fff;
+	border-color: #fff;
+}
+.entry-content th a {
+	color: #fff;
+}
+.entry-content blockquote {
+	font-style: italic;
+	padding: 5px 0 5px 20px;
+	margin-left: 60px;
+	border-left: 3px solid #e14546;
+	position: relative;
+}
+.entry-content blockquote > :last-child {
+	margin-bottom: 0;
+}
+.entry-content blockquote:before {
+	color: #e14546;
+	content: '\f106';
+	font-size: 32px;
+	line-height: 32px;
+	height: 32px;
+	display: block;
+	font-family: Genericons, sans-serif;
+	position: absolute;
+	top: 5px;
+	left: -60px;
+}
+.entry-content blockquote cite {
+	color: #808080;
+	display: block;
+	margin-top: 1em;
+	font-size: 14px;
+	font-size: 1.4rem;
+	text-align: right;
+}
 
 /*--------------------------------------------------------------
 11.2 Asides
@@ -944,10 +996,13 @@ object {
 	margin: 0 auto;
 }
 .wp-caption-text {
-	text-align: center;
+	text-align: right;
+	font-size: 14px;
+	font-size: 1.4rem;
+	color: #808080;
 }
 .wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
+	margin: 0.5em 0;
 }
 
 /*--------------------------------------------------------------

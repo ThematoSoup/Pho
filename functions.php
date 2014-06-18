@@ -134,7 +134,8 @@ add_action( 'wp_enqueue_scripts', 'pho_scripts' );
 /**
  * Initialize Masonry.
  */
-function pho_masonry_init() { ?>
+function pho_masonry_init() {
+if ( is_archive() || is_home() ) { ?>
 <script type="text/javascript">
 	var container = document.querySelector('#masonry-wrapper');
 	var msnry;
@@ -147,6 +148,7 @@ function pho_masonry_init() { ?>
 	});
 </script>
 <?php }
+}
 add_action( 'wp_footer', 'pho_masonry_init', 100 );
 
 /**

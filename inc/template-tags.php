@@ -21,13 +21,19 @@ function pho_paging_nav() {
 		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'pho' ); ?></h1>
 		<div class="nav-links">
 
-			<?php if ( get_next_posts_link() ) : ?>
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'pho' ) ); ?></div>
-			<?php endif; ?>
+			<?php
+			global $wp_query;
+			$big = 999999999; // an unlikely integer
 
-			<?php if ( get_previous_posts_link() ) : ?>
-			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'pho' ) ); ?></div>
-			<?php endif; ?>
+			echo paginate_links( array(
+				'base'        => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+				'format'      => '?paged=%#%',
+				'current'     => max( 1, get_query_var('paged') ),
+				'total'       => $wp_query->max_num_pages,
+				'prev_text'   => _x( '&larr;', 'Previous posts link', 'pho' ),
+				'next_text'   => _x( '&rarr;', 'Next posts link', 'php' )
+			) );
+			?>
 
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->
@@ -52,8 +58,14 @@ function pho_post_nav() {
 		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'pho' ); ?></h1>
 		<div class="nav-links">
 			<?php
-				previous_post_link( '<div class="nav-previous">%link</div>', _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'pho' ) );
-				next_post_link(     '<div class="nav-next">%link</div>',     _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link',     'pho' ) );
+				previous_post_link(
+					'<div class="nav-previous">%link</div>',
+					get_the_post_thumbnail( $previous->ID, 'thumbnail' ) . '<div><span class="label">' . _x( 'Previous post', 'pho' ) . '</span><span class="link">%title</span></div>'
+				);
+				next_post_link(
+					'<div class="nav-next">%link</div>',
+					get_the_post_thumbnail( $next->ID, 'thumbnail' ) . '<div><span class="label">' . _x( 'Next post', 'pho' ) . '</span><span class="link">%title</span></div>'
+				);
 			?>
 		</div><!-- .nav-links -->
 	</nav><!-- .navigation -->

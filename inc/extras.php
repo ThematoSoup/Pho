@@ -35,6 +35,10 @@ function pho_body_classes( $classes ) {
 		$classes[] = 'no-sidebar';
 	}
 
+	if ( is_front_page() && pho_has_featured_posts() ) {
+		$classes[] = 'has-featured';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'pho_body_classes' );
@@ -134,11 +138,11 @@ function pho_get_google_font_url() {
 function pho_fonts_css() {
 	// Check if body font is not default (Helvetica)
 	if ( 'Helvetica' != get_theme_mod( 'body_font', 'Helvetica' ) ) { 
-		echo '<style id="pho-body-font">body,button,input,select,textarea,.site-description{font-family:' . get_theme_mod( "body_font" ) . '}</style>';
+		echo '<style id="pho-body-font">body,button,input,select,textarea,.site-description{font-family:' . get_theme_mod( 'body_font' ) . '}</style>';
 	}
 	// Check if headings font is not default (Helvetica)
 	if ( 'Helvetica' != get_theme_mod( 'headings_font', 'Helvetica' ) ) {
-		echo '<style id="pho-headings-font">h1,h2,h3,h4,h5,h6{font-family:' . get_theme_mod( "headings_font" ) . '}</style>';
+		echo '<style id="pho-headings-font">h1,h2,h3,h4,h5,h6{font-family:' . get_theme_mod( 'headings_font' ) . '}</style>';
 	}
 }
 add_action( 'wp_head', 'pho_fonts_css' );

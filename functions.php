@@ -40,6 +40,14 @@ function pho_setup() {
 	 * @link http://codex.wordpress.org/Function_Reference/add_theme_support#Post_Thumbnails
 	 */
 	add_theme_support( 'post-thumbnails' );
+	set_post_thumbnail_size( 370, 210, true );
+	add_image_size( 'pho-full-width', 1170, 660, true );
+
+	// Add support for featured content.
+	add_theme_support( 'featured-content', array(
+		'featured_content_filter' => 'pho_get_featured_posts',
+		'max_posts'               => 8,
+	) );
 
 	// This theme uses wp_nav_menu() in two locations.
 	register_nav_menus( array(
@@ -70,9 +78,45 @@ endif; // pho_setup
 add_action( 'after_setup_theme', 'pho_setup' );
 
 /**
- * Add image size.
+ * Adjust content_width value for image attachment template.
+ *
+ * @since Pho 1.0
  */
-add_image_size( 'masonry-thumb', 370, 210, true );
+function pho_content_width() {
+	if ( ! is_active_sidebar( 'sidebar' ) ) {
+		$GLOBALS['content_width'] = 970;
+	}
+}
+add_action( 'template_redirect', 'pho_content_width' );
+
+/**
+ * Getter function for Featured Content.
+ *
+ * @since Pho 1.0
+ *
+ * @return array An array of WP_Post objects.
+ */
+function pho_get_featured_posts() {
+	/**
+	 * Filter the featured posts to return.
+	 *
+	 * @since Pho 1.0
+	 *
+	 * @param array|bool $posts Array of featured posts, otherwise false.
+	 */
+	return apply_filters( 'pho_get_featured_posts', array() );
+}
+
+/**
+ * A helper conditional function that returns a boolean value.
+ *
+ * @since Pho 1.0
+ *
+ * @return bool Whether there are featured posts.
+ */
+function pho_has_featured_posts() {
+	return ! is_paged() && (bool) pho_get_featured_posts();
+}
 
 /**
  * Register widget area.
@@ -128,6 +172,16 @@ function pho_scripts() {
 	if ( is_archive() || is_home() ) {
 		wp_enqueue_script( 'masonry' );
 	}
+
+	if ( is_front_page() && pho_has_featured_posts() ) {
+		wp_enqueue_script( 'pho-slider', get_template_directory_uri() . '/js/slider.js', array( 'jquery' ), '1.0', true );
+		wp_localize_script( 'pho-slider', 'featuredSliderDefaults', array(
+			'prevText' => __( 'Previous', 'pho' ),
+			'nextText' => __( 'Next', 'pho' )
+		) );
+	}
+
+	wp_enqueue_script( 'pho-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '1.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'pho_scripts' );
 
@@ -137,7 +191,7 @@ add_action( 'wp_enqueue_scripts', 'pho_scripts' );
 function pho_masonry_init() {
 if ( is_archive() || is_home() ) { ?>
 <script type="text/javascript">
-	var container = document.querySelector('#masonry-wrapper');
+	var container = document.querySelector('#posts-wrapper');
 	var msnry;
 
 	imagesLoaded( container, function() {
@@ -180,3 +234,13 @@ require get_template_directory() . '/inc/jetpack.php';
  * Load THA hooks.
  */
 require get_template_directory() . '/inc/libraries/tha/tha-theme-hooks.php';
+
+/*
+ * Add Featured Content functionality.
+ *
+ * To overwrite in a plugin, define your own Featured_Content class on or
+ * before the 'setup_theme' hook.
+ */
+if ( ! class_exists( 'Pho_Featured_Content' ) && 'plugins.php' !== $GLOBALS['pagenow'] ) {
+	require get_template_directory() . '/inc/featured-content.php';
+}

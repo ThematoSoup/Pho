@@ -9,7 +9,7 @@
 	<?php tha_entry_top(); ?>
 
 	<header class="entry-header">
-		<?php the_post_thumbnail( 'masonry-thumb' ); ?>
+		<?php the_post_thumbnail(); ?>
 
 		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 

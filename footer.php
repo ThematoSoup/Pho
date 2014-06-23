@@ -23,7 +23,12 @@
 					<?php printf( __( 'Theme: %1$s by %2$s.', 'pho' ), 'Pho', '<a href="http://thematosoup.com" rel="designer">ThematoSoup</a>' ); ?>
 				</div><!-- .site-info -->
 
-				<?php wp_nav_menu( array( 'theme_location' => 'footer', 'depth' => 1, 'fallback_cb' => '' ) ); ?>
+				<?php wp_nav_menu( array(
+					'theme_location' => 'footer',
+					'depth' => 1,
+					'fallback_cb' => '',
+					'container' => ''
+				) ); ?>
 			</div>
 		</div>
 		</div>

@@ -46,7 +46,7 @@
 
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<button class="menu-toggle"><?php _e( 'Primary Menu', 'pho' ); ?></button>
-				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'depth' => 3, 'container' => '' ) ); ?>
+				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'depth' => 4, 'container' => '' ) ); ?>
 			</nav><!-- #site-navigation -->
 		</div>
 

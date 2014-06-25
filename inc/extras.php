@@ -31,10 +31,12 @@ function pho_body_classes( $classes ) {
 		$classes[] = 'group-blog';
 	}
 
+	// Adds utility class for full-width layouts
 	if ( ! is_active_sidebar( 'sidebar' ) ) {
 		$classes[] = 'no-sidebar';
 	}
 
+	// Adds utility class for when featured posts area is shown
 	if ( is_front_page() && pho_has_featured_posts() ) {
 		$classes[] = 'has-featured';
 	}
@@ -129,28 +131,6 @@ function pho_get_google_font_url() {
 
 	return false;
 }
-
-/**
- * Generates embedded CSS for custom typography and color options.
- *
- * @uses   get_theme_mod
- */
-function pho_custom_css() {
-	// Check if body font is not default (Helvetica)
-	if ( 'Helvetica' != get_theme_mod( 'body_font', 'Helvetica' ) ) { 
-		echo '<style id="pho-body-font" type="text/css">body,button,input,select,textarea,.site-description{font-family:' . get_theme_mod( 'body_font' ) . '}</style>';
-	}
-	// Check if headings font is not default (Helvetica)
-	if ( 'Helvetica' != get_theme_mod( 'headings_font', 'Helvetica' ) ) {
-		echo '<style id="pho-headings-font" type="text/css">h1,h2,h3,h4,h5,h6{font-family:' . get_theme_mod( 'headings_font' ) . '}</style>';
-	}
-
-	// Check if primary color is not equal to default value
-	if ( '#e14546' != get_theme_mod( 'primary_color', '#e14546' ) ) {
-		echo '<style id="pho-color" type="text/css">button,input[type="button"],input[type="reset"],input[type="submit"],.paging-navigation span,.entry-content th,.slider-control-paging .slider-active:before,.slider-control-paging .slider-active:hover:before{background:' . get_theme_mod( 'primary_color' ) . ';}a,.main-navigation > ul > .current_page_item a,.main-navigation > ul > .current-menu-item a,.main-navigation > ul > li > a:hover,.widget a,.entry-content blockquote:before{color:' . get_theme_mod( 'primary_color' ) . ';}.main-navigation ul ul,.entry-content blockquote{border-color:' . get_theme_mod( 'primary_color' ) . ';}</style>';
-	}
-}
-add_action( 'wp_head', 'pho_custom_css' );
 
 /**
  * Count number of widgets in a sidebar

@@ -169,7 +169,7 @@ function pho_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
-	if ( is_archive() || is_home() ) {
+	if ( ( is_archive() || is_home() ) && 'masonry' == get_theme_mod( 'archives_layout', 'standard' ) ) {
 		wp_enqueue_script( 'masonry' );
 	}
 

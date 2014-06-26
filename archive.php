@@ -78,6 +78,7 @@ get_header(); ?>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
+			<div id="posts-wrapper">
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php
@@ -85,10 +86,12 @@ get_header(); ?>
 					 * If you want to override this in a child theme, then include a file
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
-					get_template_part( 'content', get_post_format() );
+					$pho_archives_format = ( 'standard' == get_theme_mod( 'archives_layout', 'standard' ) ? get_post_format() : 'masonry' );
+					get_template_part( 'content', $pho_archives_format );
 				?>
 
 			<?php endwhile; ?>
+			</div><!-- #posts-wrapper -->
 
 			<?php pho_paging_nav(); ?>
 

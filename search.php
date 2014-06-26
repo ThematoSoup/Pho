@@ -17,6 +17,7 @@ get_header(); ?>
 			</header><!-- .page-header -->
 
 			<?php /* Start the Loop */ ?>
+			<div id="posts-wrapper">
 			<?php while ( have_posts() ) : the_post(); ?>
 
 				<?php
@@ -29,6 +30,7 @@ get_header(); ?>
 				?>
 
 			<?php endwhile; ?>
+			</div><!-- #posts-wrapper -->
 
 			<?php pho_paging_nav(); ?>
 

@@ -266,8 +266,41 @@ big {
 	margin: 0;
 	padding-right: 0;
 }
-
-
+@media screen and (max-width: 800px) {
+	.content-area,
+	.site-main,
+	.site-content .widget-area {
+		float: none;
+		margin-left: 0;
+		margin-right: 0;
+		width: 100%;
+	}
+	.site-main {
+		padding-right: 0;
+	}
+	.site-main {
+		position: relative;
+		margin-bottom: 45px;
+		padding-bottom: 45px;
+		border-bottom: double 3px #f3f3f3;
+	}
+	.site-main:after {
+		content: '\f436';
+		position: absolute;
+		display: block;
+		width: 24px;
+		height: 24px;
+		font-size: 24px;
+		line-height: 24px;
+		font-family: Genericons;
+		-webkit-font-smoothing: antialiased;
+		color: #e5e5e5;
+		bottom: -14px;
+		left: 50%;
+		margin-left: -12px;
+		background: #fff;
+	}
+}
 #masthead,
 #content {
 	margin-bottom: 45px;
@@ -387,6 +420,7 @@ input[type="button"]:active,
 input[type="reset"]:active,
 input[type="submit"]:active {
 	background: #181818;
+	outline: none;
 }
 input[type="checkbox"],
 input[type="radio"] {
@@ -418,6 +452,7 @@ textarea {
 	font-size: 14px;
 	font-size: 1.4rem;
 	padding: 0.5em;
+	transition: all 0.1s ease;
 }
 input[type="text"]:focus,
 input[type="email"]:focus,
@@ -426,6 +461,9 @@ input[type="password"]:focus,
 input[type="search"]:focus,
 textarea:focus {
 	color: #111;
+	outline: none;
+	border-color: rgba(0,0,0,0.25);
+	background: rgba(0,0,0,0.075);
 }
 textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
@@ -734,7 +772,9 @@ a:active {
 .site-footer:before,
 .site-footer:after,
 .inner:before,
-.inner:after {
+.inner:after,
+.widget:before,
+.widget:after {
 	content: '';
 	display: table;
 }
@@ -745,7 +785,8 @@ a:active {
 .site-header:after,
 .site-content:after,
 .site-footer:after,
-.inner:after {
+.inner:after,
+.widget:after {
 	clear: both;
 }
 
@@ -756,10 +797,6 @@ a:active {
 	margin: 0 0 30px;
 	font-size: 15px;
 	font-size: 1.5rem;
-	overflow: hidden;
-}
-.widget:last-child {
-	margin-bottom: 0;
 }
 #secondary .widget:not(.widget_search) {
 	background-color: rgba(0,0,0,0.025);
@@ -802,28 +839,20 @@ a:active {
 	max-width: 100%;
 }
 /* Search widget */
-.search-form {
-	position: relative;
-	padding-right: 30px;
-}
-.search-form .search-field {
-	display: block;
-	line-height: 1;
-	border: 1px solid #e5e5e5;
-	width: 100%;
-}
-.search-form .search-submit {
+.search-submit {
 	display: none;
 }
 .search-form .search-field {
 	font-size: 15px;
 	font-size: 1.5rem;
+	border: 1px solid #e5e5e5;
 	padding: 10px;
 	border-radius: 0;
 	box-shadow: none;
-	height: 1em;
-	box-sizing: content-box;
-	-moz-box-sizing: content-box;
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
 }
 /* Calendar widget */
 #wp-calendar {
@@ -880,13 +909,23 @@ a:active {
 .per-row-4 .widget:nth-child(4n) {
 	padding-right: 0;
 }
-
 #footer-widgets {
-	padding: 30px 0;
+	padding: 30px 0 0;
 }
 #footer-widgets .widget {
 	padding-left: 15px;
 	padding-right: 15px;
+}
+@media screen and (max-width: 800px) {
+	#footer-widgets .widget {
+		width: 50%;
+	}
+}
+@media screen and (max-width: 480px) {
+	#footer-widgets .widget {
+		width: 100%;
+		float: none;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -895,13 +934,26 @@ a:active {
 /*--------------------------------------------------------------
 11.1 Posts and pages
 --------------------------------------------------------------*/
-#posts-wrapper .hentry {
-	width: 48.05194%;
-	margin-bottom: 30px;
-	padding-bottom: 30px;
+.page-header {
+	margin-bottom: 45px;
+	padding-bottom: 45px;
 	border-bottom: double 3px #f3f3f3;
 }
-.no-sidebar #posts-wrapper .hentry {
+.page-title {
+	margin-top: 0;
+}
+.taxonomy-description > :last-child {
+	margin-bottom: 0;
+}
+#posts-wrapper .hentry {
+	margin-bottom: 30px;
+	padding-bottom: 30px;
+	border-bottom: solid 1px #f3f3f3;
+}
+#posts-wrapper .hentry.masonry-post {
+	width: 48.05194%;
+}
+.no-sidebar #posts-wrapper .hentry.masonry-post {
 	width: 31.62393%;
 }
 #posts-wrapper .entry-summary {
@@ -1045,6 +1097,14 @@ a:active {
 	font-size: 1.4rem;
 	text-align: right;
 }
+.post-password-form label {
+	display: block;
+	margin-bottom: 15px;
+}
+.post-password-form input[type="password"] {
+	display: block;
+	width: 300px;
+}
 
 /*--------------------------------------------------------------
 11.2 Asides
@@ -1126,7 +1186,7 @@ a:active {
 }
 .comment-body {
 	padding-left: 60px;
-	padding-bottom: 40px;
+	padding-bottom: 50px;
 	position: relative;
 }
 .comment #respond {

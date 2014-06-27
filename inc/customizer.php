@@ -149,19 +149,68 @@ add_action( 'customize_register', 'pho_customize_register' );
  */
 function pho_customize_css() {
 	// Check if body font is not default (Helvetica)
-	if ( 'Helvetica' != get_theme_mod( 'body_font', 'Helvetica' ) ) { 
-		echo '<style id="pho-body-font" type="text/css">body,button,input,select,textarea,.site-description{font-family:' . get_theme_mod( 'body_font' ) . '}</style>';
-	}
+	if ( 'Helvetica' != get_theme_mod( 'body_font', 'Helvetica' ) ) { ?>
+	<style id="pho-body-font" type="text/css">
+		body,
+		button,
+		input,
+		select,
+		textarea,
+		.site-description {
+			font-family: <?php echo get_theme_mod( 'body_font' ); ?>;
+		}
+	</style>
+	<?php }
 
 	// Check if headings font is not default (Helvetica)
-	if ( 'Helvetica' != get_theme_mod( 'headings_font', 'Helvetica' ) ) {
-		echo '<style id="pho-headings-font" type="text/css">h1,h2,h3,h4,h5,h6{font-family:' . get_theme_mod( 'headings_font' ) . '}</style>';
-	}
+	if ( 'Helvetica' != get_theme_mod( 'headings_font', 'Helvetica' ) ) { ?>
+	<style id="pho-headings-font" type="text/css">
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			font-family: <?php echo get_theme_mod( 'headings_font' ); ?>;
+		}
+	</style>
+	<?php }
 
 	// Check if primary color is not equal to default value
-	if ( '#e14546' != get_theme_mod( 'primary_color', '#e14546' ) ) {
-		echo '<style id="pho-color" type="text/css">button,input[type="button"],input[type="reset"],input[type="submit"],.paging-navigation span,.entry-content th,.comment-content th,.slider-control-paging .slider-active:before,.slider-control-paging .slider-active:hover:before,.reply a,.more-link,#infinite-handle span{background:' . get_theme_mod( 'primary_color' ) . ';}a,.main-navigation > ul > .current_page_item a,.main-navigation > ul > .current-menu-item a,.main-navigation > ul > li > a:hover,.widget a,.entry-content blockquote:before,.comment-content blockquote:before{color:' . get_theme_mod( 'primary_color' ) . ';}.main-navigation ul ul,.entry-content blockquote,.comment-content blockquote{border-color:' . get_theme_mod( 'primary_color' ) . ';}</style>';
+	if ( '#e14546' != get_theme_mod( 'primary_color', '#e14546' ) ) { ?>
+	<style id="pho-color" type="text/css">
+	button,
+	input[type="button"],
+	input[type="reset"],
+	input[type="submit"],
+	.paging-navigation span,
+	.entry-content th,
+	.comment-content th,
+	.slider-control-paging .slider-active:before,
+	.slider-control-paging .slider-active:hover:before,
+	.reply a,
+	.more-link,
+	#infinite-handle span {
+		background: <?php echo get_theme_mod( 'primary_color' ); ?>;
 	}
+	a,
+	.main-navigation > ul > .current_page_item a,
+	.main-navigation > ul > .current-menu-item a,
+	.main-navigation > ul > li > a:hover,
+	.widget a,
+	.entry-content blockquote:before,
+	.comment-content blockquote:before,
+	.entry-summary blockquote:before {
+		color: <?php echo get_theme_mod( 'primary_color' ); ?>;
+	}
+	.main-navigation ul ul,
+	.entry-content blockquote,
+	.comment-content blockquote,
+	.entry-summary blockquote {
+		border-color: <?php echo get_theme_mod( 'primary_color' ); ?>;
+	}
+	</style>
+	<?php }
 }
 add_action( 'wp_head', 'pho_customize_css');
 

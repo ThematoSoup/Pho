@@ -39,7 +39,7 @@ and Blueprint http://www.blueprintcss.org/
 10.0 - Widgets
 11.0 - Content
 	11.1 - Posts and pages
-	11.2 - Asides
+	11.2 - Post Formats
 	11.3 - Comments
 12.0 - Footer
 	12.1 - Infinite Scroll
@@ -957,17 +957,6 @@ a:active {
 	margin-left: -15px;
 	margin-right: -15px;
 }
-#posts-wrapper .hentry.masonry-brick {
-	width: 50%;
-	padding-left: 15px;
-	padding-right: 15px;
-	border-bottom: none;
-	padding-bottom: none;
-}
-#posts-wrapper .hentry.masonry-brick .entry-footer {
-	padding-bottom: 30px;
-	border-bottom: solid 1px #f3f3f3;
-}
 .no-sidebar #posts-wrapper .hentry.masonry-brick {
 	width: 33.33333%;
 }
@@ -1066,7 +1055,7 @@ a:active {
 	margin-bottom: 20px;
 }
 .entry-title {
-	margin: 0;
+	margin: 0 0 10px;
 	word-wrap: break-word;
 }
 .layout-masonry #posts-wrapper .entry-title {
@@ -1081,7 +1070,7 @@ a:active {
 .entry-footer {
 	font-size: 14px;
 	font-size: 1.4rem;
-	margin-top: 1em;
+	margin: 0 0 10px;
 	color: #808080;
 }
 .entry-content > :first-child,
@@ -1116,19 +1105,26 @@ a:active {
 	color: #fff;
 }
 .entry-content blockquote,
-.comment-content blockquote {
+.comment-content blockquote,
+.entry-summary blockquote {
 	font-style: italic;
 	padding: 5px 0 5px 20px;
 	margin-left: 60px;
 	border-left: 3px solid #e14546;
 	position: relative;
 }
+.entry-summary blockquote {
+	margin-left: 40px;
+	padding-left: 15px;
+}
 .entry-content blockquote > :last-child,
-.comment-content blockquote > :last-child {
+.comment-content blockquote > :last-child,
+.entry-summary blockquote > :last-child {
 	margin-bottom: 0;
 }
 .entry-content blockquote:before,
-.comment-content blockquote:before {
+.comment-content blockquote:before,
+.entry-summary blockquote:before {
 	color: #e14546;
 	content: '\f106';
 	font-size: 32px;
@@ -1141,8 +1137,15 @@ a:active {
 	top: 5px;
 	left: -60px;
 }
+.entry-summary blockquote:before {
+	font-size: 24px;
+	line-height: 24px;
+	height: 24px;
+	left: -40px;
+}
 .entry-content blockquote cite,
-.comment-content blockquote cite {
+.comment-content blockquote cite,
+.entry-summary blockquote cite {
 	color: #808080;
 	display: block;
 	margin-top: 1em;
@@ -1160,11 +1163,37 @@ a:active {
 }
 
 /*--------------------------------------------------------------
-11.2 Asides
+11.2 Post Formats
 --------------------------------------------------------------*/
-.blog .format-aside .entry-title,
-.archive .format-aside .entry-title {
+.site-content .format-link .entry-title,
+.site-content .format-aside .entry-title,
+.site-content .format-quote .entry-title,
+.site-content .format-status .entry-title,
+#posts-wrapper .entry-footer {
 	display: none;
+}
+#posts-wrapper .entry-content {
+	margin-bottom: 0;
+}
+#posts-wrapper .hentry.masonry-brick {
+	width: 50%;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-bottom: none;
+	padding-bottom: 0;
+}
+#posts-wrapper .format-status .entry-summary,
+#posts-wrapper .format-status .entry-content {
+	font-size: 24px;
+	font-size: 2.4rem;
+}
+#posts-wrapper .hentry.masonry-brick .entry-summary,
+#posts-wrapper .hentry.masonry-brick .entry-summary > :last-child {
+	margin-bottom: 0;
+}
+#posts-wrapper .hentry.masonry-brick .masonry-inner {
+	padding-bottom: 30px;
+	border-bottom: solid 1px #f3f3f3;
 }
 
 /*--------------------------------------------------------------

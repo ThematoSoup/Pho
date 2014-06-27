@@ -160,7 +160,7 @@ function pho_customize_css() {
 
 	// Check if primary color is not equal to default value
 	if ( '#e14546' != get_theme_mod( 'primary_color', '#e14546' ) ) {
-		echo '<style id="pho-color" type="text/css">button,input[type="button"],input[type="reset"],input[type="submit"],.paging-navigation span,.entry-content th,.comment-content th,.slider-control-paging .slider-active:before,.slider-control-paging .slider-active:hover:before,.reply a{background:' . get_theme_mod( 'primary_color' ) . ';}a,.main-navigation > ul > .current_page_item a,.main-navigation > ul > .current-menu-item a,.main-navigation > ul > li > a:hover,.widget a,.entry-content blockquote:before,.comment-content blockquote:before{color:' . get_theme_mod( 'primary_color' ) . ';}.main-navigation ul ul,.entry-content blockquote,.comment-content blockquote{border-color:' . get_theme_mod( 'primary_color' ) . ';}</style>';
+		echo '<style id="pho-color" type="text/css">button,input[type="button"],input[type="reset"],input[type="submit"],.paging-navigation span,.entry-content th,.comment-content th,.slider-control-paging .slider-active:before,.slider-control-paging .slider-active:hover:before,.reply a,.more-link,#infinite-handle span{background:' . get_theme_mod( 'primary_color' ) . ';}a,.main-navigation > ul > .current_page_item a,.main-navigation > ul > .current-menu-item a,.main-navigation > ul > li > a:hover,.widget a,.entry-content blockquote:before,.comment-content blockquote:before{color:' . get_theme_mod( 'primary_color' ) . ';}.main-navigation ul ul,.entry-content blockquote,.comment-content blockquote{border-color:' . get_theme_mod( 'primary_color' ) . ';}</style>';
 	}
 }
 add_action( 'wp_head', 'pho_customize_css');

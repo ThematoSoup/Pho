@@ -408,7 +408,8 @@ input[type="submit"] {
 button:hover,
 input[type="button"]:hover,
 input[type="reset"]:hover,
-input[type="submit"]:hover {
+input[type="submit"]:hover,
+#infinite-handle span:hover {
 	background: #555;
 }
 button:focus,
@@ -418,7 +419,9 @@ input[type="submit"]:focus,
 button:active,
 input[type="button"]:active,
 input[type="reset"]:active,
-input[type="submit"]:active {
+input[type="submit"]:active,
+#infinite-handle span:focus,
+#infinite-handle span:active {
 	background: #181818;
 	outline: none;
 }
@@ -950,11 +953,35 @@ a:active {
 	padding-bottom: 30px;
 	border-bottom: solid 1px #f3f3f3;
 }
-#posts-wrapper .hentry.masonry-post {
-	width: 48.05194%;
+.layout-masonry #posts-wrapper {
+	margin-left: -15px;
+	margin-right: -15px;
 }
-.no-sidebar #posts-wrapper .hentry.masonry-post {
-	width: 31.62393%;
+#posts-wrapper .hentry.masonry-brick {
+	width: 50%;
+	padding-left: 15px;
+	padding-right: 15px;
+	border-bottom: none;
+	padding-bottom: none;
+}
+#posts-wrapper .hentry.masonry-brick .entry-footer {
+	padding-bottom: 30px;
+	border-bottom: solid 1px #f3f3f3;
+}
+.no-sidebar #posts-wrapper .hentry.masonry-brick {
+	width: 33.33333%;
+}
+@media screen and (max-width: 770px) {
+	#posts-wrapper .hentry.masonry-brick,
+	.no-sidebar #posts-wrapper .hentry.masonry-brick {
+		width: 50%;
+	}
+}
+@media screen and (max-width: 570px) {
+	#posts-wrapper .hentry.masonry-brick,
+	.no-sidebar #posts-wrapper .hentry.masonry-brick {
+		width: 100%;
+	}
 }
 #posts-wrapper .entry-summary {
 	font-size: 16px;
@@ -993,9 +1020,26 @@ a:active {
 	margin-left: -12px;
 	background: #fff;
 }
+.more-link,
+#infinite-handle span {
+	display: inline-block;
+	background: #e14546;
+	color: #fff;
+	font-size: 14px;
+	font-size: 1.4rem;
+	line-height: 1;
+	padding: 1em 1.5em;
+	margin: 0.5em 0;
+	text-transform: uppercase;
+	text-decoration: none;
+}
+.more-link:hover,
+.more-link:visited {
+	color: #fff;
+}
 
 .byline,
-.updated {
+.updated:not(.published) {
 	display: none;
 }
 .single .byline,
@@ -1017,8 +1061,17 @@ a:active {
 .entry-header .wp-post-image {
 	margin-bottom: 30px;
 }
+.layout-masonry #posts-wrapper .entry-header,
+.layout-masonry #posts-wrapper .wp-post-image {
+	margin-bottom: 20px;
+}
 .entry-title {
 	margin: 0;
+	word-wrap: break-word;
+}
+.layout-masonry #posts-wrapper .entry-title {
+	font-size: 30px;
+	font-size: 3rem;
 }
 .entry-title a {
 	color: #1d1d1d;
@@ -1300,6 +1353,16 @@ a:active {
 /*--------------------------------------------------------------
 12.1 Infinite scroll
 --------------------------------------------------------------*/
+#infinite-footer {
+	background: rgba( 255, 255, 255, 0.8 );
+	border-top: 1px solid rgba(0,0,0,0.1);
+}
+#infinite-footer .container {
+	max-width: 1200px;
+	padding: 0 15px;
+	background: none;
+	border: none;
+}
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
 .infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
 .infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
@@ -1308,6 +1371,16 @@ a:active {
 /* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
 .infinity-end.neverending .site-footer {
 	display: block;
+}
+/* Fix Older Posts button placement in Masonry layout */
+.infinite-scroll.layout-masonry #posts-wrapper {
+	position: relative;
+	padding-bottom: 60px;
+}
+.infinite-scroll.layout-masonry #posts-wrapper #infinite-handle {
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }
 
 /*--------------------------------------------------------------
@@ -1356,6 +1429,7 @@ object {
 	text-align: right;
 	font-size: 14px;
 	font-size: 1.4rem;
+	line-height: 1.2;
 	color: #808080;
 }
 .wp-caption .wp-caption-text {
@@ -1373,6 +1447,7 @@ object {
 	text-align: center;
 	vertical-align: top;
 	width: 100%;
+	padding: 10px;
 }
 .gallery-columns-2 .gallery-item {
 	max-width: 50%;
@@ -1398,7 +1473,11 @@ object {
 .gallery-columns-9 .gallery-item {
 	max-width: 11.11%;
 }
-.gallery-caption {}
+.gallery-caption {
+	text-align: center;
+	font-size: 12px;
+	font-size: 1.2rem;
+}
 
 /*--------------------------------------------------------------
 14.0 Featured Content

@@ -41,6 +41,9 @@ function pho_body_classes( $classes ) {
 		$classes[] = 'has-featured';
 	}
 
+	// Adds archives layout class
+	$classes[] = 'layout-' . get_theme_mod( 'archives_layout', 'standard' );
+
 	return $classes;
 }
 add_filter( 'body_class', 'pho_body_classes' );

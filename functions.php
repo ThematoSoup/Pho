@@ -19,6 +19,7 @@ function pho_setup() {
 	/**
 	 * Set the content width based on the theme's design and stylesheet.
 	 */
+	global $content_width;
 	if ( ! isset( $content_width ) ) {
 		$content_width = 780; /* pixels */
 	}
@@ -57,7 +58,7 @@ function pho_setup() {
 	) );
 
 	// Enable support for Post Formats.
-	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
+	add_theme_support( 'post-formats', array( 'aside', 'status', 'image', 'quote', 'link' ) );
 
 	// Setup the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'pho_custom_background_args', array(
@@ -84,7 +85,7 @@ add_action( 'after_setup_theme', 'pho_setup' );
  */
 function pho_content_width() {
 	if ( ! is_active_sidebar( 'sidebar' ) ) {
-		$GLOBALS['content_width'] = 970;
+		$GLOBALS['content_width'] = 1170;
 	}
 }
 add_action( 'template_redirect', 'pho_content_width' );
@@ -170,7 +171,7 @@ function pho_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 	if ( ( is_archive() || is_home() ) && 'masonry' == get_theme_mod( 'archives_layout', 'standard' ) ) {
-		wp_enqueue_script( 'masonry' );
+		wp_enqueue_script( 'jquery-masonry' );
 	}
 
 	if ( is_front_page() && pho_has_featured_posts() ) {
@@ -189,17 +190,30 @@ add_action( 'wp_enqueue_scripts', 'pho_scripts' );
  * Initialize Masonry.
  */
 function pho_masonry_init() {
-if ( is_archive() || is_home() ) { ?>
+if ( ( is_archive() || is_home() ) && 'masonry' == get_theme_mod( 'archives_layout', 'standard' ) ) { ?>
 <script type="text/javascript">
+jQuery( document ).ready( function( $ ) {
+	var container = $('#posts-wrapper');
+	container.imagesLoaded( function() {
+		$(container).masonry({
+			itemSelector: '.hentry',
+			gutter:       0,
+		});
+	});
+});
+	/*
 	var container = document.querySelector('#posts-wrapper');
 	var msnry;
 
+	alert( container );
 	imagesLoaded( container, function() {
 		msnry = new Masonry( container, {
 			itemSelector: '.hentry',
-			gutter:       30
+			gutter:       30,
+			isResizable:  true,
 		});
 	});
+	*/
 </script>
 <?php }
 }
@@ -224,11 +238,6 @@ require get_template_directory() . '/inc/extras.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
-require get_template_directory() . '/inc/jetpack.php';
 
 /**
  * Load THA hooks.

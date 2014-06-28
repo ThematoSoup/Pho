@@ -32,7 +32,7 @@ function pho_body_classes( $classes ) {
 	}
 
 	// Adds utility class for full-width layouts
-	if ( ! is_active_sidebar( 'sidebar' ) ) {
+	if ( ! is_active_sidebar( 'sidebar' ) || is_404() ) {
 		$classes[] = 'no-sidebar';
 	}
 

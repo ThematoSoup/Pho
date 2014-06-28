@@ -257,14 +257,19 @@ big {
 	width: 31.62393%;
 }
 /* Full width */
-.no-sidebar.single #content,
-.no-sidebar.page #content {
+.no-sidebar #primary {
 	float: none;
 	max-width: 1000px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 30px;
 }
 .no-sidebar .site-main {
 	margin: 0;
 	padding-right: 0;
+}
+.error404 #primary {
+	max-width: 800px;
 }
 @media screen and (max-width: 800px) {
 	.content-area,
@@ -318,6 +323,12 @@ big {
 .site-title a:visited {
 	color: #1d1d1d;
 	text-decoration: none;
+}
+.error404 .page-title {
+	margin-bottom: 0.5em;
+}
+.error404 .page-content {
+	padding: 40px 0;
 }
 .site-description {
 	font-size: 16px;
@@ -951,6 +962,10 @@ a:active {
 }
 .page-title {
 	margin-top: 0;
+	margin-bottom: 0;
+}
+.taxonomy-description {
+	margin-top: 1.5em;
 }
 .taxonomy-description > :last-child {
 	margin-bottom: 0;

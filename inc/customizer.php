@@ -11,83 +11,74 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function pho_customize_register( $wp_customize ) {
-	// Primary Color setting
+	// Register Theme section
+	$wp_customize->add_section(
+		'theme',
+		array(
+			'title'    => __( 'Theme', 'pho' ),
+			'priority' => 1
+		)
+	);
+
+	// Primary Color
 	$wp_customize->add_setting( 'primary_color', array(
 		'default'     => '#e14546',
 		'type'        => 'theme_mod',
 		'capability'  => 'edit_theme_options',
 		'transport'   => 'refresh',
 	) );     
-	// Primary Color control
 	$wp_customize->add_control( new WP_Customize_Color_Control(
 		$wp_customize,
 		'primary_color',
 		array(
 			'label'      => __( 'Primary Color', 'pho' ),
-			'section'    => 'colors',
+			'section'    => 'theme',
 			'settings'   => 'primary_color',
-			'priority'   => 5,
+			'priority'   => 10,
 		) 
 	) );
 
-	// Logo setting
-	$wp_customize->add_setting( 'logo', array(
-		'type'        => 'theme_mod',
-		'capability'  => 'edit_theme_options',
-		'transport'   => 'refresh'
-	) );     
-	// Logo control
-	$wp_customize->add_control( new WP_Customize_Image_Control(
-		$wp_customize,
-		'logo',
-		array(
-			'label'      => __( 'Upload a logo', 'pho' ),
-			'section'    => 'title_tagline',
-			'settings'   => 'logo',
-			'context'    => 'logo' 
-		)
-	) );
-
-	// Layout section
-	$wp_customize->add_section(
-		'layout',
-		array(
-			'title'    => __( 'Layout', 'pho' ),
-			'priority' => 30
-		)
-	);
-	// Layout settings
+	// Archives layout
 	$wp_customize->add_setting(
 		'archives_layout',
 		array(
 			'default' => 'standard'
 		)
 	);
-	// Layout control
 	$wp_customize->add_control(
 		'archives_layout',
 		array(
 			'label'      => __( 'Archives layout', 'pho' ),
-			'section'    => 'layout',
+			'section'    => 'theme',
 			'settings'   => 'archives_layout',
 			'type'       => 'radio',
 			'choices'    => array(
 				'standard'  => 'Standard',
 				'masonry'   => 'Masonry',
 			),
-			'priority'   => 1
+			'priority'   => 20
 		) 
 	);
 
-	// Typography section
-	$wp_customize->add_section(
-		'typography',
+	// Logo
+	$wp_customize->add_setting( 'logo', array(
+		'type'        => 'theme_mod',
+		'capability'  => 'edit_theme_options',
+		'transport'   => 'refresh'
+	) );     
+	$wp_customize->add_control( new WP_Customize_Image_Control(
+		$wp_customize,
+		'logo',
 		array(
-			'title'    => __( 'Typography', 'pho' ),
-			'priority' => 30
+			'label'      => __( 'Upload a logo (will replace site title)', 'pho' ),
+			'section'    => 'theme',
+			'settings'   => 'logo',
+			'context'    => 'logo',
+			'priority'   => 30,
 		)
-	);
-	// Typography settings
+	) );
+
+	// Typography 
 	$wp_customize->add_setting(
 		'body_font',
 		array(
@@ -100,14 +91,13 @@ function pho_customize_register( $wp_customize ) {
 			'default' => 'Helvetica'
 		)
 	);
-	// Typography controls
 	$wp_customize->add_control(
 		'body_font',
 		array(
 			'label'      => __( 'Body font', 'pho' ),
-			'section'    => 'typography',
+			'section'    => 'theme',
 			'settings'   => 'body_font',
-			'type'       => 'radio',
+			'type'       => 'select',
 			'choices'    => array(
 				'Helvetica'   => 'Helvetica',
 				'Cabin'       => 'Cabin',
@@ -116,16 +106,16 @@ function pho_customize_register( $wp_customize ) {
 				'Droid Serif' => 'Droid Serif',
 				'Raleway'     => 'Raleway'
 			),
-			'priority'   => 1
+			'priority'   => 40
 		) 
 	);
 	$wp_customize->add_control(
 		'headings_font',
 		array(
 			'label'      => __( 'Headings font', 'pho' ),
-			'section'    => 'typography',
+			'section'    => 'theme',
 			'settings'   => 'headings_font',
-			'type'       => 'radio',
+			'type'       => 'select',
 			'choices'    => array(
 				'Helvetica'   => 'Helvetica',
 				'Cabin'       => 'Cabin',
@@ -134,7 +124,7 @@ function pho_customize_register( $wp_customize ) {
 				'Droid Serif' => 'Droid Serif',
 				'Raleway'     => 'Raleway'
 			),
-			'priority'   => 2
+			'priority'   => 50
 		) 
 	);
 

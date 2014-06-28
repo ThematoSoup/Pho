@@ -1409,6 +1409,21 @@ a:active {
 	display: inline-block;
 	margin-left: 1em;
 }
+@media screen and (max-width: 800px) {
+	.site-info,
+	#footer-bottom ul.menu {
+		width: 100%;
+		float: none;
+		text-align: left;
+	}
+	.site-info {
+		margin-bottom: 1em;
+	}
+	#footer-bottom ul.menu li {
+		margin: 0 1em 0 0;
+	}
+}
+
 
 /*--------------------------------------------------------------
 12.1 Infinite scroll

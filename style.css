@@ -1070,8 +1070,10 @@ a:active {
 .entry-footer {
 	font-size: 14px;
 	font-size: 1.4rem;
-	margin: 0 0 10px;
 	color: #808080;
+}
+.entry-footer {
+	margin: 0 0 10px;
 }
 .entry-content > :first-child,
 .comment-content > :first-child {
@@ -1165,6 +1167,13 @@ a:active {
 /*--------------------------------------------------------------
 11.2 Post Formats
 --------------------------------------------------------------*/
+#posts-wrapper .format-image .entry-header {
+	margin-bottom: 0;
+}
+#posts-wrapper .format-image .entry-title {
+	font-size: 20px;
+	font-size: 2rem;
+}
 .site-content .format-link .entry-title,
 .site-content .format-aside .entry-title,
 .site-content .format-quote .entry-title,

@@ -10,7 +10,9 @@
 
 	<div class="masonry-inner">
 		<header class="entry-header">
-			<?php the_post_thumbnail(); ?>
+			<?php if ( has_post_thumbnail() ) { ?>
+				<a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_post_thumbnail(); ?></a>
+			<?php } ?>
 
 			<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 
@@ -21,6 +23,7 @@
 			<?php endif; ?>
 		</header><!-- .entry-header -->
 
+		<?php if ( 'image' != get_post_format() ) { ?>
 		<div class="entry-summary">
 			<?php if ( 'quote' == get_post_format() || 'status' == get_post_format() || 'aside' == get_post_format() ) {
 				the_content();
@@ -28,6 +31,7 @@
 				the_excerpt();
 			} ?>
 		</div><!-- .entry-summary -->
+		<?php } ?>
 
 		<footer class="entry-footer">
 			<?php

@@ -340,6 +340,11 @@ big {
 	clear: both;
 	width: 100%;
 }
+.custom-background #page {
+	max-width: 1200px;
+	background: #fff;
+	margin: 0 auto;
+}
 
 /*--------------------------------------------------------------
 4.0 Elements

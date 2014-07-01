@@ -44,6 +44,12 @@ function pho_body_classes( $classes ) {
 	// Adds archives layout class
 	$classes[] = 'layout-' . get_theme_mod( 'archives_layout', 'standard' );
 
+	// Adds custom background classes, needed because of https://core.trac.wordpress.org/ticket/28687
+	if ( 'ffffff' != get_theme_mod( 'background_color', 'ffffff' ) )
+		$classes[] = 'custom-background-color';
+	if ( '' != get_theme_mod( 'background_image', '' ) )
+		$classes[] = 'custom-background-image';
+
 	return $classes;
 }
 add_filter( 'body_class', 'pho_body_classes' );

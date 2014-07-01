@@ -32,6 +32,9 @@ function pho_setup() {
 	 */
 	load_theme_textdomain( 'pho', get_template_directory() . '/languages' );
 
+	// This theme styles the visual editor to resemble the theme style.
+	add_editor_style( array( 'css/editor-style.css', pho_get_google_font_url() ) );
+
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 

@@ -194,7 +194,7 @@ pre {
 	background-color: rgba(0,0,0,0.025);
 	border: 1px solid rgba(0,0,0,0.05);
 	padding: 1.5em;
-	font-family: "Courier 10 Pitch", Courier, monospace;
+	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	font-size: 14px;
 	font-size: 1.4rem;
 	line-height: 1.6;
@@ -340,7 +340,8 @@ big {
 	clear: both;
 	width: 100%;
 }
-.custom-background #page {
+.custom-background-color #page,
+.custom-background-image #page {
 	max-width: 1200px;
 	background: #fff;
 	margin: 0 auto;

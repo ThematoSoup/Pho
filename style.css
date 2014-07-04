@@ -587,9 +587,12 @@ a:active {
 	.main-navigation ul ul li:hover > ul {
 		left: 100%;
 	}
-	.main-navigation > ul > .current_page_item a,
-	.main-navigation > ul > .current-menu-item a,
-	.main-navigation > ul > li > a:hover {
+	.main-navigation > ul.nav-menu > .current_page_item > a,
+	.main-navigation > ul.nav-menu > .current-menu-item > a,
+	.main-navigation > ul.nav-menu > li > a:hover,
+	.main-navigation > .nav-menu > ul > .current_page_item > a,
+	.main-navigation > .nav-menu > ul > .current-menu-item > a,
+	.main-navigation > .nav-menu > ul > li > a:hover {
 		color: #e14546;
 	}
 	.main-navigation .menu-item-has-children > a,

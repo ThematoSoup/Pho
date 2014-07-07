@@ -47,7 +47,7 @@ In addition to this you have the option of 2 page layouts:
 ### Widget Areas
 
 There are 2 widgetized areas:
-* Primary
+* Sodebar
 * Footer
 
 
@@ -75,7 +75,6 @@ Pho comes in all white color scheme.
 
 You can also tweak:
 * Primary Color
-* Header Text Color
 * Background Color
 
 By changing these three color settings, you can create your custom color scheme.

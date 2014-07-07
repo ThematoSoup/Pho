@@ -180,7 +180,8 @@ function pho_customize_css() {
 	.slider-control-paging .slider-active:hover:before,
 	.reply a,
 	.more-link,
-	#infinite-handle span {
+	#infinite-handle span,
+	#social-menu {
 		background: <?php echo get_theme_mod( 'primary_color' ); ?>;
 	}
 	a,

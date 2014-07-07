@@ -24,7 +24,7 @@ Social menu
 #social-menu {
 	list-style: none;
 	margin: 0;
-	background: #222;
+	background: #e14546;
 	text-align: center;
 }
 #social-menu li {
@@ -33,7 +33,7 @@ Social menu
 }
 #social-menu a {
 	text-decoration: none;
-	color: #ccc;
+	color: #fff;
 }
 #social-menu a[href*="facebook.com"],
 #social-menu a[href*="github.com"],

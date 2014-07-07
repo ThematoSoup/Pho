@@ -47,7 +47,7 @@ In addition to this you have the option of 2 page layouts:
 ### Widget Areas
 
 There are 2 widgetized areas:
-* Sodebar
+* Sidebar
 * Footer
 
 

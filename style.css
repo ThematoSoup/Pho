@@ -238,9 +238,9 @@ big {
 3.0 - Layout
 --------------------------------------------------------------*/
 .inner {
-	max-width: 1200px;
+	max-width: 1230px;
 	margin: 0 auto;
-	padding: 0 15px;	
+	padding: 0 30px;	
 }
 /* Content - Sidebar */
 .content-area {
@@ -342,7 +342,7 @@ big {
 }
 .custom-background-color #page,
 .custom-background-image #page {
-	max-width: 1200px;
+	max-width: 1230px;
 	background: #fff;
 	margin: 0 auto;
 }
@@ -1442,8 +1442,8 @@ a:active {
 	border-top: 1px solid rgba(0,0,0,0.1);
 }
 #infinite-footer .container {
-	max-width: 1200px;
-	padding: 0 15px;
+	max-width: 1230px;
+	padding: 0 30px;
 	background: none;
 	border: none;
 }

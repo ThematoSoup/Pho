@@ -1421,15 +1421,18 @@ a:active {
 	display: inline-block;
 	margin-left: 1em;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
 	.site-info,
 	#footer-bottom ul.menu {
 		width: 100%;
 		float: none;
-		text-align: left;
+		text-align: center;
 	}
-	.site-info {
-		margin-bottom: 1em;
+	#footer-bottom ul.menu + .site-info {
+		margin-top: 1em;
+	}
+	#footer-bottom ul.menu {
+		text-align: center;
 	}
 	#footer-bottom ul.menu li {
 		margin: 0 1em 0 0;

@@ -1403,6 +1403,9 @@ a:active {
 	font-size: 1.4rem;
 	padding: 15px 0;
 }
+#footer-bottom a {
+	color: #e14546;
+}
 .site-info {
 	float: left;
 	width: 50%;

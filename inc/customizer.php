@@ -191,7 +191,8 @@ function pho_customize_css() {
 	.widget a,
 	.entry-content blockquote:before,
 	.comment-content blockquote:before,
-	.entry-summary blockquote:before {
+	.entry-summary blockquote:before,
+	#footer-bottom a {
 		color: <?php echo get_theme_mod( 'primary_color' ); ?>;
 	}
 	.main-navigation ul ul,

@@ -28,7 +28,7 @@ class Pho_Featured_Content {
 	 * @access public
 	 * @var int
 	 */
-	public static $max_posts = 15;
+	public static $max_posts = 8;
 
 	/**
 	 * Instantiate.

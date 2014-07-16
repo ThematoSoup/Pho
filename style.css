@@ -733,6 +733,75 @@ a:active {
 	background: #e14546;
 	color: #fff;
 }
+/* Social Menu */
+#social-menu {
+	list-style: none;
+	margin: 0;
+	background: #1d1d1d;
+	text-align: center;
+}
+#social-menu li {
+	display: inline-block;
+	margin: 0 0.25em;
+}
+#social-menu a {
+	text-decoration: none;
+	color: #fff;
+}
+#social-menu a[href*="facebook.com"],
+#social-menu a[href*="github.com"],
+#social-menu a[href*="flickr.com"],
+#social-menu a[href*="plus.google.com"],
+#social-menu a[href*="instagram.com"],
+#social-menu a[href*="linkedin.org"],
+#social-menu a[href*="pinterest.com"],
+#social-menu a[href*="skype"],
+#social-menu a[href*="tumblr.com"],
+#social-menu a[href*="twitter.com"],
+#social-menu a[href*="vimeo.com"],
+#social-menu a[href*="youtube.com"] {
+	font-size: 16px;
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	overflow: hidden;
+}
+#social-menu a[href*="facebook.com"]:before,
+#social-menu a[href*="github.com"]:before,
+#social-menu a[href*="flickr.com"]:before,
+#social-menu a[href*="plus.google.com"]:before,
+#social-menu a[href*="instagram.com"]:before,
+#social-menu a[href*="linkedin.org"]:before,
+#social-menu a[href*="pinterest.com"]:before,
+#social-menu a[href*="skype"]:before,
+#social-menu a[href*="tumblr.com"]:before,
+#social-menu a[href*="twitter.com"]:before,
+#social-menu a[href*="vimeo.com"]:before,
+#social-menu a[href*="youtube.com"]:before {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	-webkit-font-smoothing: antialiased;
+	font-size: 16px;
+	line-height: 1;
+	font-family: 'Genericons';
+	text-decoration: inherit;
+	font-weight: normal;
+	font-style: normal;
+	vertical-align: top;
+}
+#social-menu a[href*="facebook.com"]:before {      content: '\f203'; }
+#social-menu a[href*="github.com"]:before {        content: '\f200'; }
+#social-menu a[href*="flickr.com"]:before {        content: '\f211'; }
+#social-menu a[href*="plus.google.com"]:before {   content: '\f206'; }
+#social-menu a[href*="instagram.com"]:before {     content: '\f215'; }
+#social-menu a[href*="linkedin.com"]:before {      content: '\f207'; }
+#social-menu a[href*="pinterest.com"]:before {     content: '\f209'; }
+#social-menu a[href*="skype"]:before {             content: '\f220'; }
+#social-menu a[href*="tumblr.com"]:before {        content: '\f214'; }
+#social-menu a[href*="twitter.com"]:before {       content: '\f202'; }
+#social-menu a[href*="vimeo.com"]:before {         content: '\f212'; }
+#social-menu a[href*="youtube.com"]:before {       content: '\f213'; }
 
 /*--------------------------------------------------------------
 7.0 Accessibility

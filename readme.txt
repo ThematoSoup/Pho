@@ -4,11 +4,11 @@ Pho, WordPress Theme for Bloggers
 Thank you for using Pho by ThematoSoup
 ----------------------------------------
 
-Pho is a masonry, elegant WordPress theme created with WordPress best practices in mind.
+Pho is a Masonry, elegant WordPress theme created with WordPress best practices in mind.
 
 [Pho][1] is a blogging WordPress theme easy to setup and customize. If you're looking for a WordPress product that focuses on ease of use and your content, this theme is for you.
 
-Pho is using all the latest WordPress standards so it?s:
+Pho is using all the latest WordPress standards so it's:
 * Stable
 * Future proof
 * Secure
@@ -17,13 +17,15 @@ Pho Features
 ----------------
 
 Pho is an amazingly flexible and powerful free blogging theme developed by [ThematoSoup][2]. It is responsive and retina ready. It comes with:
+* Boxed and full width layout
 * 2 page layouts (right sidebar, no sidebar)
-* 2 page templates (masonry, authors, widgetized, sitemap)
 * 2 widget areas (primary, footer)
+* Featured content
+* Custom background feature
 
 Clean code and latest WordPress quality guidelines make it lean, fast and secure.
 
-Every feature you want to enable or disable is in one place - Customizer, so when you change something you get an instant preview. Theme customizer is a native WordPress feature which makes it very easy to adjust any theme to your needs.
+Every feature you want to enable or disable is in one place - Customizer, so when you change something you get an instant preview. Theme Customizer is a native WordPress feature which makes it very easy to adjust any theme to your needs.
 
 
 ### Layouts
@@ -32,16 +34,9 @@ Pho lets you choose between 2 layout types:
 * Full width (if you don't use sidebar)
 * Right Sidebar
 
-In addition to this you have the option of 2 page layouts:
+In addition to this you have the option of 2 archives layouts:
 * Masonry (with or without sidebar)
 * Standard (with or without sidebar)
-
-
-### Page Templates
-
-2 different templates let you choose the best possible way to present your content:
-* Standard
-* Masonry (Pinterest-like template)
 
 
 ### Widget Areas
@@ -71,18 +66,14 @@ Site title and tagline are your standard WordPress features. They are placed in 
 
 ### Colors
 
-Pho comes in all white color scheme.
-
-You can also tweak:
+Pho comes in all white color scheme, but you can tweak:
 * Primary Color
 * Background Color
-
-By changing these three color settings, you can create your custom color scheme.
 
 
 ### Background Image
 
-You have the option of setting a custom background image or a pattern. A custom background color will be overridden by a background image.
+You have the option of setting a custom background image or a pattern. Custom background color will be overridden by a background image.
 
 
 ### Navigation
@@ -92,7 +83,6 @@ The theme has three navigation menu locations:
 * Footer
 * Social Menu (above header)
 
-You also have the option of showing your post navigation below posts.
 
 ### Front Page
 

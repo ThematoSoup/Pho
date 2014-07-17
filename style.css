@@ -264,7 +264,8 @@ big {
 .no-sidebar.page #primary .entry-title {
 	padding-top: 30px;
 }
-.no-sidebar.layout-standard #primary,
+.no-sidebar.layout-standard.blog #primary,
+.no-sidebar.layout-standard.archive #primary,
 .no-sidebar.single #primary .entry-header :not(.wp-post-image),
 .no-sidebar.single #primary .entry-content,
 .no-sidebar.single #primary .entry-footer,
@@ -1066,8 +1067,8 @@ a:active {
 	margin-bottom: 0;
 }
 #posts-wrapper .hentry {
-	margin-bottom: 30px;
-	padding-bottom: 30px;
+	margin-bottom: 60px;
+	padding-bottom: 60px;
 	border-bottom: solid 1px #f3f3f3;
 }
 .layout-masonry #posts-wrapper {
@@ -1292,6 +1293,7 @@ a:active {
 	padding-right: 15px;
 	border-bottom: none;
 	padding-bottom: 0;
+	margin-bottom: 30px;
 }
 #posts-wrapper .format-status .entry-summary,
 #posts-wrapper .format-status .entry-content {

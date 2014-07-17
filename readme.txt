@@ -111,6 +111,12 @@ The theme is under GPLv2. However some parts aren't, for example, jQuery and jQu
 * jQuery Masonry - MIT
 
 
+Featured content
+----------------
+
+Theme featured content functionality is based on Twenty Fourteen WordPress theme featured content, copyright
+
+
 Theme Re-Distribution
 ---------------------
 

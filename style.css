@@ -257,7 +257,9 @@ big {
 	width: 31.62393%;
 }
 /* Full width */
-.no-sidebar #primary {
+.no-sidebar.layout-standard #primary,
+.no-sidebar.single #primary,
+.no-sidebar.page #primary {
 	float: none;
 	max-width: 800px;
 	margin-left: auto;

@@ -257,14 +257,26 @@ big {
 	width: 31.62393%;
 }
 /* Full width */
+.no-sidebar #primary {
+	float: none;
+}
+.no-sidebar.single #primary .entry-title,
+.no-sidebar.page #primary .entry-title {
+	padding-top: 30px;
+}
 .no-sidebar.layout-standard #primary,
-.no-sidebar.single #primary,
-.no-sidebar.page #primary {
+.no-sidebar.single #primary .entry-header :not(.wp-post-image),
+.no-sidebar.single #primary .entry-content,
+.no-sidebar.single #primary .entry-footer,
+.no-sidebar.single #primary .post-navigation,
+.no-sidebar.page #primary .entry-header :not(.wp-post-image),
+.no-sidebar.page #primary .entry-content,
+.no-sidebar.page #primary .entry-footer,
+.no-sidebar.page #primary .post-navigation {
 	float: none;
 	max-width: 800px;
 	margin-left: auto;
 	margin-right: auto;
-	padding-top: 30px;
 }
 .no-sidebar .site-main {
 	margin: 0;
@@ -1086,33 +1098,18 @@ a:active {
 .hentry {
 	margin: 0 0 3em;
 }
-.single .hentry,
-.page .hentry {
+.single .hentry .entry-footer {
+	padding-bottom: 45px;
+	margin-bottom: 0;
+	border-bottom: double 3px #f3f3f3;
+}
+.single .hentry .entry-footer,
+.page .hentry .entry-footer {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing:    border-box;
 	box-sizing:         border-box;
 	position: relative;
 	width: 100%;
-	margin-bottom: 45px;
-	padding-bottom: 45px;
-	border-bottom: double 3px #f3f3f3;
-}
-.single .hentry:after,
-.page .hentry:after {
-	content: '\f436';
-	position: absolute;
-	display: block;
-	width: 24px;
-	height: 24px;
-	font-size: 24px;
-	line-height: 24px;
-	font-family: Genericons;
-	-webkit-font-smoothing: antialiased;
-	color: #e5e5e5;
-	bottom: -14px;
-	left: 50%;
-	margin-left: -12px;
-	background: #fff;
 }
 .more-link,
 #infinite-handle span {

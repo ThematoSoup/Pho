@@ -1071,6 +1071,12 @@ a:active {
 	padding-bottom: 60px;
 	border-bottom: solid 1px #f3f3f3;
 }
+.layout-standard #posts-wrapper .sticky,
+.layout-masonry #posts-wrapper .sticky .masonry-inner {
+	background: #f9f9f9;
+	border: 1px solid #f0f0f0;
+	padding: 30px;
+}
 .layout-masonry #posts-wrapper {
 	margin-left: -15px;
 	margin-right: -15px;

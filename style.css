@@ -1067,14 +1067,14 @@ a:active {
 	margin-bottom: 0;
 }
 #posts-wrapper .hentry {
-	margin-bottom: 60px;
-	padding-bottom: 60px;
+	margin-bottom: 45px;
+	padding-bottom: 45px;
 	border-bottom: solid 1px #f3f3f3;
 }
 .layout-standard #posts-wrapper .sticky,
 .layout-masonry #posts-wrapper .sticky .masonry-inner {
-	background: #f9f9f9;
-	border: 1px solid #f0f0f0;
+	background-color: rgba(0,0,0,0.025);
+	border: 1px solid rgba(0,0,0,0.05);
 	padding: 30px;
 }
 .layout-masonry #posts-wrapper {
@@ -1184,6 +1184,10 @@ a:active {
 .entry-footer {
 	margin: 0 0 10px;
 }
+.entry-footer > span {
+	display: block;
+	margin-bottom: 0.3em;
+}
 .entry-content > :first-child,
 .comment-content > :first-child {
 	margin-top: 0;
@@ -1287,11 +1291,18 @@ a:active {
 .site-content .format-aside .entry-title,
 .site-content .format-quote .entry-title,
 .site-content .format-status .entry-title,
-#posts-wrapper .entry-footer {
+.site-content .format-link .entry-footer,
+.site-content .format-aside .entry-footer,
+.site-content .format-quote .entry-footer,
+.site-content .format-status .entry-footer,
+.site-content .format-image .entry-footer {
 	display: none;
 }
 #posts-wrapper .entry-content {
 	margin-bottom: 0;
+}
+#posts-wrapper .entry-content + .entry-footer {
+	margin-top: 30px;
 }
 #posts-wrapper .hentry.masonry-brick {
 	width: 50%;

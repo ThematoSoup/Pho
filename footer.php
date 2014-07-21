@@ -27,7 +27,7 @@
 				<div class="site-info">
 					<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'pho' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'pho' ), 'WordPress' ); ?></a>
 					<span class="sep"> | </span>
-					<?php printf( __( 'Theme: %1$s by %2$s.', 'pho' ), 'Pho', '<a href="http://thematosoup.com" rel="designer">ThematoSoup</a>' ); ?>
+					<?php printf( __( 'Theme: %1$s by %2$s.', 'pho' ), 'Pho', '<a href="http://thematosoup.com" rel="designer nofollow">ThematoSoup</a>' ); ?>
 				</div><!-- .site-info -->
 			</div>
 		</div>

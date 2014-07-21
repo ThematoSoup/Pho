@@ -153,6 +153,10 @@ Source: http://www.genericons.com
 Theme Hooks Alliance is licensed under the terms of the GNU GPL 2 (or later)
 Source: [https://github.com/zamoose/themehookalliance][7]
 
+### Screenshot featured image
+
+Copyright Slobodan Manic, GNU GPLv2
+
 
 
 Theme Re-Distribution

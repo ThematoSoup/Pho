@@ -60,11 +60,11 @@ function pho_post_nav() {
 			<?php
 				previous_post_link(
 					'<div class="nav-previous">%link</div>',
-					get_the_post_thumbnail( $previous->ID, 'thumbnail' ) . '<div><span class="label">' . _x( 'Previous post', 'pho' ) . '</span><span class="link">%title</span></div>'
+					get_the_post_thumbnail( $previous->ID, 'thumbnail' ) . '<div><span class="label">' . __( 'Previous post', 'pho' ) . '</span><span class="link">%title</span></div>'
 				);
 				next_post_link(
 					'<div class="nav-next">%link</div>',
-					get_the_post_thumbnail( $next->ID, 'thumbnail' ) . '<div><span class="label">' . _x( 'Next post', 'pho' ) . '</span><span class="link">%title</span></div>'
+					get_the_post_thumbnail( $next->ID, 'thumbnail' ) . '<div><span class="label">' . __( 'Next post', 'pho' ) . '</span><span class="link">%title</span></div>'
 				);
 			?>
 		</div><!-- .nav-links -->

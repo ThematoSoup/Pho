@@ -1,59 +1,54 @@
-# Copyright (C) 2014 Automattic
-# This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: _s 1.0-wpcom\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tags/_s\n"
-"POT-Creation-Date: 2014-04-28 01:32:28+00:00\n"
+"Project-Id-Version: Fanciest Author Box\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-21 09:39+0100\n"
+"PO-Revision-Date: 2014-07-21 09:40+0100\n"
+"Last-Translator: Slobodan Manic <slobodan.manic@gmail.com>\n"
+"Language-Team: ThematoSoup <contact@thematosoup.com>\n"
+"Language: en_US\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"X-Poedit-KeywordsList: __;_e;esc_attr__;esc_attr_e;esc_html__;esc_html_e;_x;"
+"_ex;esc_attr_x;esc_html_x;_n;_nx;_n_loop;_nx_loop\n"
+"X-Poedit-Basepath: ../\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-SearchPath-0: .\n"
 
 #: 404.php:15
 msgid "Oops! That page can&rsquo;t be found."
 msgstr ""
 
-#: 404.php:19
-msgid ""
-"It looks like nothing was found at this location. Maybe try one of the links "
-"below or a search?"
-msgstr ""
-
-#: 404.php:27
-msgid "Most Used Categories"
-msgstr ""
-
-#. translators: %1$s: smiley
-#: 404.php:44
-msgid "Try looking in the monthly archives. %1$s"
+#: 404.php:17
+msgid "It looks like nothing was found at this location. Maybe try search?"
 msgstr ""
 
 #: archive.php:27
+#, php-format
 msgid "Author: %s"
 msgstr ""
 
 #: archive.php:30
+#, php-format
 msgid "Day: %s"
 msgstr ""
 
 #: archive.php:33
+#, php-format
 msgid "Month: %s"
 msgstr ""
 
 #: archive.php:33
-msgctxt "monthly archives date format"
 msgid "F Y"
 msgstr ""
 
 #: archive.php:36
+#, php-format
 msgid "Year: %s"
 msgstr ""
 
 #: archive.php:36
-msgctxt "yearly archives date format"
 msgid "Y"
 msgstr ""
 
@@ -93,31 +88,62 @@ msgstr ""
 msgid "Chats"
 msgstr ""
 
-#: archive.php:66 sidebar.php:16
+#: archive.php:66
 msgid "Archives"
 msgstr ""
 
-#: comments.php:28
-msgctxt "comments title"
+#: comments.php:29
+#, php-format
 msgid "One thought on &ldquo;%2$s&rdquo;"
-msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
-msgstr[0] ""
-msgstr[1] ""
+msgstr ""
 
-#: comments.php:35 comments.php:52
+#: comments.php:36 comments.php:54
 msgid "Comment navigation"
 msgstr ""
 
-#: comments.php:36 comments.php:53
+#: comments.php:37 comments.php:55
 msgid "&larr; Older Comments"
 msgstr ""
 
-#: comments.php:37 comments.php:54
+#: comments.php:38 comments.php:56
 msgid "Newer Comments &rarr;"
 msgstr ""
 
-#: comments.php:64
+#: comments.php:66
 msgid "Comments are closed."
+msgstr ""
+
+#: content-featured-post.php:24 content-image.php:27 content-image.php:37
+#: content-masonry.php:39 content-masonry.php:49 content-single.php:34
+#: content-single.php:37 content.php:41 content.php:51
+msgid ", "
+msgstr ""
+
+#: content-image.php:31 content-masonry.php:43 content.php:45
+#, php-format
+msgid "Posted in %1$s"
+msgstr ""
+
+#: content-image.php:41 content-masonry.php:53 content.php:55
+#, php-format
+msgid "Tagged %1$s"
+msgstr ""
+
+#: content-image.php:47 content-masonry.php:58 content.php:61
+msgid "Leave a comment"
+msgstr ""
+
+#: content-image.php:47 content-masonry.php:58 content.php:61
+msgid "1 Comment"
+msgstr ""
+
+#: content-image.php:47 content-masonry.php:58 content.php:61
+msgid "% Comments"
+msgstr ""
+
+#: content-image.php:50 content-masonry.php:61 content-page.php:27
+#: content-single.php:65 content.php:64
+msgid "Edit"
 msgstr ""
 
 #: content-none.php:13
@@ -125,6 +151,7 @@ msgid "Nothing Found"
 msgstr ""
 
 #: content-none.php:19
+#, php-format
 msgid ""
 "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
@@ -141,153 +168,174 @@ msgid ""
 "searching can help."
 msgstr ""
 
-#: content-page.php:18 content-single.php:20 content.php:27
+#: content-page.php:21 content-single.php:25 content.php:30
 msgid "Pages:"
 msgstr ""
 
-#: content-page.php:23 content-single.php:60 content.php:61
-msgid "Edit"
-msgstr ""
-
-#. translators: used between list items, there is a space after the comma
-#: content-single.php:29 content-single.php:32 content.php:38 content.php:48
-msgid ", "
-msgstr ""
-
-#: content-single.php:37
+#: content-single.php:42
+#, php-format
 msgid ""
 "This entry was tagged %2$s. Bookmark the <a href=\"%3$s\" rel=\"bookmark"
 "\">permalink</a>."
 msgstr ""
 
-#: content-single.php:39
+#: content-single.php:44
+#, php-format
 msgid "Bookmark the <a href=\"%3$s\" rel=\"bookmark\">permalink</a>."
 msgstr ""
 
-#: content-single.php:45
+#: content-single.php:50
+#, php-format
 msgid ""
 "This entry was posted in %1$s and tagged %2$s. Bookmark the <a href=\"%3$s\" "
 "rel=\"bookmark\">permalink</a>."
 msgstr ""
 
-#: content-single.php:47
+#: content-single.php:52
+#, php-format
 msgid ""
 "This entry was posted in %1$s. Bookmark the <a href=\"%3$s\" rel=\"bookmark"
 "\">permalink</a>."
 msgstr ""
 
-#: content.php:24
+#: content.php:27
 msgid "Continue reading <span class=\"meta-nav\">&rarr;</span>"
 msgstr ""
 
-#: content.php:42
-msgid "Posted in %1$s"
-msgstr ""
-
-#: content.php:52
-msgid "Tagged %1$s"
-msgstr ""
-
-#: content.php:58
-msgid "Leave a comment"
-msgstr ""
-
-#: content.php:58
-msgid "1 Comment"
-msgstr ""
-
-#: content.php:58
-msgid "% Comments"
-msgstr ""
-
-#: footer.php:15
+#: footer.php:28
 msgid "http://wordpress.org/"
 msgstr ""
 
-#: footer.php:15
+#: footer.php:28
+#, php-format
 msgid "Proudly powered by %s"
 msgstr ""
 
-#: footer.php:17
+#: footer.php:30
+#, php-format
 msgid "Theme: %1$s by %2$s."
 msgstr ""
 
-#: functions.php:45 header.php:31
+#: functions.php:58 header.php:48
 msgid "Primary Menu"
 msgstr ""
 
-#: functions.php:76
+#: functions.php:59
+msgid "Footer Menu"
+msgstr ""
+
+#: functions.php:60
+msgid "Social Menu"
+msgstr ""
+
+#: functions.php:132
 msgid "Sidebar"
 msgstr ""
 
-#: header.php:32
+#: functions.php:142
+msgid "Footer Widgets"
+msgstr ""
+
+#: functions.php:191
+msgid "Previous"
+msgstr ""
+
+#: functions.php:192
+msgid "Next"
+msgstr ""
+
+#: header.php:27
 msgid "Skip to content"
 msgstr ""
 
-#: inc/extras.php:63
+#: search.php:16
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: inc/customizer.php:18
+msgid "Theme"
+msgstr ""
+
+#: inc/customizer.php:34
+msgid "Primary Color"
+msgstr ""
+
+#: inc/customizer.php:51
+msgid "Archives layout"
+msgstr ""
+
+#: inc/customizer.php:73
+msgid "Upload a logo (will replace site title)"
+msgstr ""
+
+#: inc/customizer.php:97
+msgid "Body font"
+msgstr ""
+
+#: inc/customizer.php:115
+msgid "Headings font"
+msgstr ""
+
+#: inc/extras.php:82
+#, php-format
 msgid "Page %s"
+msgstr ""
+
+#: inc/featured-content.php:409
+msgid "Featured Content"
+msgstr ""
+
+#: inc/featured-content.php:410
+#, php-format
+msgid ""
+"Use a <a href=\"%1$s\">tag</a> to feature your posts. If no posts match the "
+"tag, <a href=\"%2$s\">sticky posts</a> will be displayed instead."
+msgstr ""
+
+#: inc/featured-content.php:411 inc/featured-content.php:420
+#: inc/featured-content.php:480
+msgid "featured"
+msgstr ""
+
+#: inc/featured-content.php:432
+msgid "Tag Name"
+msgstr ""
+
+#: inc/featured-content.php:437
+msgid "Don&rsquo;t display tag on front end."
 msgstr ""
 
 #: inc/template-tags.php:21
 msgid "Posts navigation"
 msgstr ""
 
-#: inc/template-tags.php:25
-msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+#: inc/template-tags.php:33
+msgid "&larr;"
 msgstr ""
 
-#: inc/template-tags.php:29
-msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+#: inc/template-tags.php:34
+msgid "&rarr;"
 msgstr ""
 
-#: inc/template-tags.php:52
+#: inc/template-tags.php:58
 msgid "Post navigation"
 msgstr ""
 
-#: inc/template-tags.php:55
-msgctxt "Previous post link"
-msgid "<span class=\"meta-nav\">&larr;</span> %title"
+#: inc/template-tags.php:63
+msgid "Previous post"
 msgstr ""
 
-#: inc/template-tags.php:56
-msgctxt "Next post link"
-msgid "%title <span class=\"meta-nav\">&rarr;</span>"
+#: inc/template-tags.php:67
+msgid "Next post"
 msgstr ""
 
-#: inc/template-tags.php:81
-msgid ""
-"<span class=\"posted-on\">Posted on %1$s</span><span class=\"byline\"> by "
-"%2$s</span>"
+#: inc/template-tags.php:96
+#, php-format
+msgid "Posted on %s"
 msgstr ""
 
-#: search.php:16
-msgid "Search Results for: %s"
-msgstr ""
-
-#: sidebar.php:23
-msgid "Meta"
-msgstr ""
-
-#. Theme Name of the plugin/theme
-msgid "_s"
-msgstr ""
-
-#. Theme URI of the plugin/theme
-msgid "http://underscores.me/"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid ""
-"Hi. I'm a starter theme called <code>_s</code>, or <em>underscores</em>, if "
-"you like. I'm a theme meant for hacking so don't use me as a <em>Parent "
-"Theme</em>. Instead try turning me into the next, most awesome, WordPress "
-"theme out there. That's what I'm here for."
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "Automattic"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "http://automattic.com/"
+#: inc/template-tags.php:101
+#, php-format
+msgid "by %s"
 msgstr ""

@@ -4,7 +4,7 @@ Theme URI:     http://demo.thematosoup.com/pho
 Author:        ThematoSoup
 Author URI:    http://thematosoup.com
 Description:   Lean, fast WordPress theme
-Version:       0.1
+Version:       1.0
 License:       GNU General Public License v2 or later
 License URI:   http://www.gnu.org/licenses/gpl-2.0.html
 Text Domain:   pho
@@ -1844,7 +1844,7 @@ object {
 		box-sizing:         border-box;
 		overflow: hidden;
 		position: absolute;
-		bottom: 0;
+		bottom: -1px;
 		left: 0;
 		width: 600px;
 		padding: 20px 20px 40px 10px;

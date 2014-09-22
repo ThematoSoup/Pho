@@ -169,6 +169,9 @@ Changelog
 ---------
 
 ### 1.0
+* Fixes main menu highlight color CSS issue
+
+### 1.0
 * Initial release
 
 [1] http://demo.thematosoup.com/pho

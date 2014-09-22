@@ -184,9 +184,9 @@ function pho_customize_css() {
 		background: <?php echo get_theme_mod( 'primary_color' ); ?>;
 	}
 	a,
-	.main-navigation > ul > .current_page_item a,
-	.main-navigation > ul > .current-menu-item a,
-	.main-navigation > ul > li > a:hover,
+	.main-navigation ul.nav-menu > .current_page_item a,
+	.main-navigation ul.nav-menu > .current-menu-item a,
+	.main-navigation ul.nav-menu > li > a:hover,
 	.widget a,
 	.entry-content blockquote:before,
 	.comment-content blockquote:before,
@@ -203,7 +203,7 @@ function pho_customize_css() {
 	</style>
 	<?php }
 }
-add_action( 'wp_head', 'pho_customize_css');
+add_action( 'wp_head', 'pho_customize_css' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
